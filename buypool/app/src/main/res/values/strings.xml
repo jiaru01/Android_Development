@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">buypool</string>
+    <string name="app_name">Profile UI</string>
+    <string name="appName">BuyPool !</string>
+    <string name="Login">Login</string>
+    <string name="SignUp">SignUp</string>
+    <string name="Password">Password</string>
+    <string name="Email">Email</string>
+    <string name="ComfirmPassword">Confirm Password</string>
+    <string name="ForgetPassword">Forget Password ..?</string>
+
+    <string name="Facebook">FaceBook Login ..?</string>
+    <string name="twitter">twitter Login ..?</string>
+    <string name="google">google Login ..?</string>
+
+
 </resources>
