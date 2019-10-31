@@ -115,13 +115,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:importantForAutofill="no"
-        android:text="@string/appName"
+        android:text="@string/Login"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintHorizontal_bias="0.446"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.19" />
@@ -136,6 +136,7 @@
 
         android:ems="10"
         android:inputType="textEmailAddress"
+        android:text="@string/Email"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.623"
@@ -181,6 +182,7 @@
         android:ems="10"
         android:importantForAccessibility="no"
         android:inputType="textPersonName"
+        android:text="@string/Password"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/EnterEmail"
         app:layout_constraintHorizontal_bias="0.0"
