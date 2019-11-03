@@ -1,5 +1,7 @@
 <resources>
-    <string name="appName">BuyPool !</string>
+    <string name="app_name">BuyPool !</string>
+    <string name="appName">BuyPool  !</string>
+
     <string name="UserName">UserName</string>
     <string name="Name">Name</string>
     <string name="PhoneNumber">Phone Number</string>
@@ -14,6 +16,8 @@
     <string name="Facebook">FaceBook Login ..?</string>
     <string name="twitter">twitter Login ..?</string>
     <string name="google">google Login ..?</string>
+    <string name="notification_icon">Notification</string>>
+    <string name="post_page_icon_that_happy_face">Post Your page ?</string>>
 
 
 </resources>

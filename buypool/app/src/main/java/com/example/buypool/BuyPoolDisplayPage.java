@@ -9,56 +9,58 @@ import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 import android.widget.TextView;
+import android.widget.Toast;
 
-
-public class MainActivity extends AppCompatActivity {
-    private Button btnLogin, btnSignup;
+public class BuyPoolDisplayPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        btnLogin = findViewById(R.id.btnLogin);
-        btnSignup = findViewById(R.id.btnSignup);
+        setContentView(R.layout.activity_buy_pool_display_page);
 
-        btnSignup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                OpenSignUpActivity();
-            }
-        });
-
-
-//        This should be deleted later , used for testing the tool bar
         Toolbar toolbar = findViewById(R.id.profile_toolbar);
+//        toolbar.setTitle("Profile");
         setSupportActionBar(toolbar);
-        TextView textView = toolbar.findViewById(R.id.toolbar_title);
-        textView.setText("String");
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        TextView textView = toolbar.findViewById(R.id.toolbar_title);
+        textView.setText("BuyPool");
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 //        Change color of the overflow 'The three dot' on Tool bar
         toolbar.getOverflowIcon().setColorFilter(ContextCompat.getColor(this, R.color.white), PorterDuff.Mode.SRC_ATOP);
-//        This should be deleted later , used for testing the tool bar
 
     }
 
-//    here delete for toolbar
     public boolean onCreateOptionsMenu(Menu menu) {
 //        push menu icons onto the toolbars
         getMenuInflater().inflate(R.menu.buypooldisplaypage, menu);
         return true;
     }
-//    here delete for toolbar
 
 
-    public void OpenSignUpActivity() {
-        Intent intent = new Intent(this, SignUpActivity.class);
-        startActivity(intent);
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.share) {
+
+            //change page should be here
+            Toast.makeText(getApplicationContext(), "Your click about", Toast.LENGTH_SHORT).show();
+
+        } else if (id == R.id.about) {
+            Toast.makeText(getApplicationContext(), "Your click about", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.profile) {
+            Intent intent = new Intent(this, ProfileActivity.class);
+            startActivity(intent);
+        }else if (id == R.id.Notification) {
+//            Intent intent = new Intent(this, ProfileActivity.class);
+//            startActivity(intent);
+            Toast.makeText(getApplicationContext(), "Your click about", Toast.LENGTH_SHORT).show();
+
+        }
+        return true;
+
     }
 
 }
