@@ -9,7 +9,7 @@
         android:id="@+id/about"
         android:title="About" />
     <item
-        android:id="@+id/profile"
+        android:id="@+id/toProfile"
         android:icon="@drawable/ic_tag_faces"
         android:title="@string/post_page_icon_that_happy_face"
         app:showAsAction="always" />
