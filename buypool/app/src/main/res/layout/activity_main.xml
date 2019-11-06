@@ -131,7 +131,7 @@
 
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:text="@string/Email"
+        android:hint="@string/Email"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.623"
@@ -175,9 +175,9 @@
 
         android:background="@drawable/textview"
         android:ems="10"
+        android:hint="@string/Password"
         android:importantForAccessibility="no"
         android:inputType="textPersonName"
-        android:text="@string/Password"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/EnterEmail"
         app:layout_constraintHorizontal_bias="0.0"
@@ -214,4 +214,18 @@
 
 
         />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="74dp"
+        android:layout_marginBottom="3dp"
+        android:text="Remember Password?"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/Password" />
 </androidx.constraintlayout.widget.ConstraintLayout>
