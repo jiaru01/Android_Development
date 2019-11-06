@@ -1,6 +1,9 @@
 package com.example.buypool;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +11,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
@@ -28,7 +32,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyHolder myHolder, int position) {
+    public void onBindViewHolder(@NonNull final MyHolder myHolder, final int position) {
         myHolder.mTitle.setText(models.get(position).getTitle());
         myHolder.mDes.setText(models.get(position).getDesription());
 
@@ -37,7 +41,31 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
         myHolder.mImaeView.setImageResource(models.get(position).getImg());
 
 
+        //this is all part two
+        myHolder.setItemClickListener(new ItemClickListener() {
+            @Override
+            public void onItemClickListener(View v, int position) {
+                String gTitle = models.get(position).getTitle();
+                String gDesc = models.get(position).getDesription();//get data from previous activity
+                BitmapDrawable bitmapDrawable = (BitmapDrawable) myHolder.mImaeView.getDrawable(); // this will get our image from drawble
 
+                Bitmap bitmap = bitmapDrawable.getBitmap();
+                ByteArrayOutputStream stream = new ByteArrayOutputStream(); //image will get stream and bytes;
+
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);//this will compress our  image
+
+                byte[] bytes = stream.toByteArray();
+
+                //get out data with intent
+                Intent intent = new Intent(c, AnotherPageActivity.class);
+                intent.putExtra("iTitle", gTitle);
+                intent.putExtra("iDesc", gDesc);
+                intent.putExtra("iImage", bytes);
+                //???
+                c.startActivity(intent);
+
+            }
+        });
     }
 
     @Override

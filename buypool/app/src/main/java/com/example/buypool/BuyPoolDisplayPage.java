@@ -55,7 +55,7 @@ public class BuyPoolDisplayPage extends AppCompatActivity {
 
          m = new Model();//We built this model
         m.setTitle("New Feeds");
-        m.setDesription("This is newsfeed descripstion");
+        m.setDesription("This is newsfeed descripstiLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt uLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt uLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt uon");
         m.setImg(R.drawable.male);
         models.add(m);
 
