@@ -11,4 +11,130 @@
         android:id="@+id/ProfileToolBarId"
         layout="@layout/toolbar" />
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="6dp"
+        app:cardUseCompatPadding="true"
+
+        app:layout_constraintTop_toBottomOf="@+id/ProfileToolBarId"
+
+
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ProfileToolBarId"
+            app:layout_constraintVertical_bias="0.111"
+            tools:layout_editor_absoluteX="0dp">
+
+
+            <TextView
+                android:id="@+id/createFormTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.045"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/createFormTitleInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="24dp"
+                android:ems="10"
+                android:hint="This is a hint. Type name here."
+                android:inputType="textPersonName"
+                android:text="Title"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.087"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/createFormTitleText"
+                app:layout_constraintVertical_bias="0.086" />
+
+            <TextView
+                android:id="@+id/createFormAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/createFormTitleInput"
+                app:layout_constraintTop_toBottomOf="@+id/createFormTitleInput" />
+
+            <EditText
+                android:id="@+id/createFormAddressInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+
+                android:inputType="textPostalAddress"
+                android:text="Address"
+                app:layout_constraintStart_toStartOf="@+id/createFormAddress"
+                app:layout_constraintTop_toBottomOf="@+id/createFormAddress" />
+
+            <TextView
+                android:id="@+id/createFormPhoneNumberText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/PhoneNumber"
+                app:layout_constraintStart_toStartOf="@+id/createFormAddressInput"
+                app:layout_constraintTop_toBottomOf="@+id/createFormAddressInput" />
+
+            <EditText
+                android:id="@+id/createFormPhoneNumberInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="36dp"
+                android:ems="10"
+                android:inputType="phone"
+                android:text="@string/PhoneNumber"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/createFormPhoneNumberText" />
+
+            <TextView
+                android:id="@+id/createFormDiscriptionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Discription"
+
+                app:layout_constraintStart_toStartOf="@+id/createFormPhoneNumberText"
+                app:layout_constraintTop_toBottomOf="@+id/createFormPhoneNumberInput"
+
+                />
+
+            <EditText
+                android:id="@+id/createFormDiscriptionTextInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+
+                android:inputType="textMultiLine"
+                android:lines="10"
+                android:maxLines="4"
+                android:text="Discription"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/createFormDiscriptionText"
+                app:layout_constraintTop_toBottomOf="@+id/createFormDiscriptionText" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
