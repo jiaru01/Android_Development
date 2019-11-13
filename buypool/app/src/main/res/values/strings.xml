@@ -19,5 +19,15 @@
     <string name="notification_icon">Notification</string>>
     <string name="post_page_icon_that_happy_face">Post Your page ?</string>>
 
+    <string name="feedbackemail"> eMial</string>
+    <string name="feedbacktitle"> feedbacktitle</string>
+    <string name="feedbackname"> feedbackname</string>
+    <string name="feedbacktype"> feedbacktype</string>
+
+    <string name="feedbackbody"> feedbackbody</string>
+    <string name="feedbackresponse"> feedbackresponse</string>
+
+
+
 
 </resources>
