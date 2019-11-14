@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         btnLogin = findViewById(R.id.btnLogin);
         btnSignup = findViewById(R.id.btnSignup);
-        getBtnLogin = findViewById(R.id.button3);
+        getBtnLogin = findViewById(R.id.ButtonLoginInto);
         email = (EditText) findViewById(R.id.EnterEmail);
         password = (EditText) findViewById(R.id.Password);
         remember = (CheckBox) findViewById(R.id.checkBox);
