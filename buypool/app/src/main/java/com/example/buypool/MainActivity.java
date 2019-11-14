@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Username or Password Wrong!", Toast.LENGTH_LONG).show();
             return;
         }
-        Intent intent = new Intent(this, MenuActivity.class);
+        Intent intent = new Intent(this, BuyPoolDisplayPage.class);
         startActivity(intent);
 
     }
