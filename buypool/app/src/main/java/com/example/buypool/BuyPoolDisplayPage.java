@@ -112,18 +112,17 @@ public class BuyPoolDisplayPage extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.share) {
-
             //change page should be here
             Toast.makeText(getApplicationContext(), "Your click about", Toast.LENGTH_SHORT).show();
 
         } else if (id == R.id.about) {
             Toast.makeText(getApplicationContext(), "Your click about", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.profile_toolbar) {
+        } else if (id == R.id.toProfile) {
             Intent intent = new Intent(this, ProfileActivity.class);
             startActivity(intent);
         } else if (id == R.id.Notification) {
 
-//            Toast.makeText(getApplicationContext(), "Your click about", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Your click notidication", Toast.LENGTH_SHORT).show();
 
         }
 
