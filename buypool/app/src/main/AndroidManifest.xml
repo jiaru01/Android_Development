@@ -9,9 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AnotherPageActivity"
-            android:parentActivityName=".BuyPoolDisplayPage"
-            ></activity>
+        <activity android:name=".NoticeActivity"></activity>
+        <activity android:name=".CardSend" />
+        <activity android:name=".CardCollection" />
+        <activity
+            android:name=".AnotherPageActivity"
+            android:parentActivityName=".BuyPoolDisplayPage" />
         <activity android:name=".BuyPoolDisplayPage" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".MenuActivity" />

@@ -27,7 +27,21 @@
     <string name="feedbackbody"> feedbackbody</string>
     <string name="feedbackresponse"> feedbackresponse</string>
 
+    <!--String for Profile Page-->
+    <string name="Card_Collection"> Card Collection</string>
+    <string name="Card_Send"> Card Send</string>
+    <string name="Title"> Title</string>
+    <string name="TitleHintEnterText"> Enter Your Topic here</string>
+    <string name="PhoneNumberHintEnterText">Enter Your Phone Number here</string>
+    <string name="Address"> Address</string>
+    <string name="AddressHere"> Enter Your Address here</string>
+    <string name="Description"> Description</string>
+    <string name="DescriptionEnter"> Please enter your description here</string>
+    <string name="DesignTopContentDiscription"> Profile page top backgroup</string>
+    <string name="CollectedCardContentDiscription"> Profile page move to Collected Card  </string>
+    <string name="SendCardContentDiscription"> Profile page move to Send Card  </string>
 
+    <!-- String Profile page End Here-->
 
 
 </resources>

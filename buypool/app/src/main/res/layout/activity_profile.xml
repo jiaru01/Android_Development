@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <include
-        android:id="@+id/ProfileToolBarId"
-        layout="@layout/toolbar" />
+<!--    <include-->
+<!--        android:id="@+id/ProfileToolBarId"-->
+<!--        layout="@layout/toolbar" />-->
 
     <!--    android:translationY="-90dp"-->
 
@@ -30,9 +30,13 @@
                 android:id="@+id/DesignTop"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
+                android:contentDescription="@string/DesignTopContentDiscription"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/header_login" />
+            <include
+                android:id="@+id/ProfileToolBarId"
+                layout="@layout/toolbar" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile_image"
@@ -86,7 +90,7 @@
                         android:layout_gravity="center"
                         android:drawableLeft="@drawable/ic_collections"
                         android:drawablePadding="20dp"
-                        android:text="Card Collection"
+                        android:text="@string/Card_Collection"
                         android:textColor="@color/colorWhite"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -103,9 +107,11 @@
                         android:textStyle="bold" />
 
                     <ImageView
+                        android:id="@+id/toCardCollectionPage"
                         android:layout_width="60dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
+                        android:contentDescription="@string/CollectedCardContentDiscription"
                         android:src="@drawable/ic_keyboard_arrow_right_black"
                         android:translationX="-10dp" />
                 </LinearLayout>
@@ -140,7 +146,7 @@
                         android:layout_gravity="center"
                         android:drawableLeft="@drawable/ic_send"
                         android:drawablePadding="20dp"
-                        android:text="Card Send"
+                        android:text="@string/Card_Send"
                         android:textColor="@color/colorWhite"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -157,9 +163,11 @@
                         android:textStyle="bold" />
 
                     <ImageView
+                        android:id="@+id/toSendCard"
                         android:layout_width="60dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
+                        android:contentDescription="@string/SendCardContentDiscription"
                         android:src="@drawable/ic_keyboard_arrow_right_black"
                         android:translationX="-10dp" />
 
@@ -195,9 +203,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Title"
+                        android:text="@string/Title"
                         android:textColor="@color/colorGreen"
-                        android:textSize="20dp"
+                        android:textSize="20sp"
                         android:textStyle="bold"
 
                         />
@@ -209,7 +217,7 @@
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/ic_assignment_black"
                         android:drawablePadding="8dp"
-                        android:hint=" Enter Your Topic here."
+                        android:hint="@string/TitleHintEnterText"
                         android:inputType="textPersonName"
                         android:paddingLeft="8dp"
                         android:paddingTop="10dp"
@@ -221,9 +229,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Phone Number"
+                        android:text="@string/PhoneNumber"
                         android:textColor="@color/colorGreen"
-                        android:textSize="20dp"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <EditText
@@ -235,7 +243,7 @@
                         android:drawablePadding="8dp"
                         android:ems="10"
 
-                        android:hint="PhoneNumber"
+                        android:hint="@string/PhoneNumberHintEnterText"
                         android:inputType="phone"
                         android:paddingLeft="8dp" />
 
@@ -244,9 +252,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Address"
+                        android:text="@string/Address"
                         android:textColor="@color/colorGreen"
-                        android:textSize="20dp"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <EditText
@@ -257,7 +265,7 @@
 
                         android:drawableLeft="@drawable/ic_home"
                         android:drawablePadding="8dp"
-                        android:hint="address here."
+                        android:hint="@string/AddressHere"
                         android:inputType="textPostalAddress|textMultiLine"
                         android:lines="6"
                         android:maxLines="6"
@@ -270,9 +278,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Description"
+                        android:text="@string/Description"
                         android:textColor="@color/colorGreen"
-                        android:textSize="20dp"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <EditText
@@ -283,13 +291,12 @@
                         android:layout_marginBottom="12dp"
                         android:background="@drawable/edit_text_ui"
                         android:gravity="start|top"
-                        android:hint="Descriptions...."
+                        android:hint="@string/DescriptionEnter"
                         android:inputType="text|textMultiLine"
                         android:minLines="8"
                         android:padding="8dp"
                         android:scrollbars="vertical"
-                        android:scrollHorizontally="false"
-                        />
+                        android:scrollHorizontally="false" />
 
                     <Button
 
@@ -299,7 +306,7 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="30dp"
                         android:background="@drawable/bg_ui"
-                        android:text="Login"
+                        android:text="@string/Login"
                         android:textColor="@color/colorWhite"
                         android:textSize="22sp" />
                 </LinearLayout>

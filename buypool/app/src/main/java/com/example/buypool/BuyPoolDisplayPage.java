@@ -25,17 +25,17 @@ public class BuyPoolDisplayPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy_pool_display_page);
 
+        //Tool Bar starts from here
         Toolbar toolbar = findViewById(R.id.buyPool_toolbar_title);
         setSupportActionBar(toolbar);
-
         TextView textView = toolbar.findViewById(R.id.toolbar_title);
-
         textView.setText("BuyPool");
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
 //        Change color of the overflow 'The three dot' on Tool bar
         toolbar.getOverflowIcon().setColorFilter(ContextCompat.getColor(this, R.color.white), PorterDuff.Mode.SRC_ATOP);
-//
+// Tool Bars ends here
+
+
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));//create a recycling view in a linear layout
         MyAdapter Myadapter = new MyAdapter( this,getMyList());
@@ -122,8 +122,8 @@ public class BuyPoolDisplayPage extends AppCompatActivity {
             startActivity(intent);
         } else if (id == R.id.Notification) {
 
-            Toast.makeText(getApplicationContext(), "Your click notidication", Toast.LENGTH_SHORT).show();
-
+            Intent intent = new Intent(this, NoticeActivity.class);
+            startActivity(intent);
         }
 
 
