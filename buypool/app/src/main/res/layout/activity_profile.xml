@@ -4,137 +4,320 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/login"
-    tools:context=".ProfileActivity">
-
+    tools:context=".MainActivity">
     <include
         android:id="@+id/ProfileToolBarId"
         layout="@layout/toolbar" />
 
-    <androidx.cardview.widget.CardView
+    <!--    android:translationY="-90dp"-->
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="6dp"
-        app:cardElevation="6dp"
-        app:cardUseCompatPadding="true"
-
-        app:layout_constraintTop_toBottomOf="@+id/ProfileToolBarId"
-
-
-        >
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
+            android:orientation="vertical"
+            android:scrollbars="vertical">
 
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ProfileToolBarId"
-            app:layout_constraintVertical_bias="0.111"
-            tools:layout_editor_absoluteX="0dp">
-
-
-            <TextView
-                android:id="@+id/createFormTitleText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Title"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.045"
+            <ImageView
+                android:id="@+id/DesignTop"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/header_login" />
 
-            <EditText
-                android:id="@+id/createFormTitleInput"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="24dp"
-                android:ems="10"
-                android:hint="This is a hint. Type name here."
-                android:inputType="textPersonName"
-                android:text="Title"
-                app:layout_constraintBottom_toBottomOf="parent"
-
-
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginTop="88dp"
+                android:src="@drawable/female"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.087"
+                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/createFormTitleText"
-                app:layout_constraintVertical_bias="0.086" />
+                app:layout_constraintTop_toTopOf="@+id/DesignTop" />
 
             <TextView
-                android:id="@+id/createFormAddress"
+                android:id="@+id/UserName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Address"
+                android:layout_marginTop="12dp"
+                android:text="UserName Jack wahaha"
+                android:textSize="20dp"
+                android:textStyle="bold"
+
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/createFormTitleInput"
-                app:layout_constraintTop_toBottomOf="@+id/createFormTitleInput" />
-
-            <EditText
-                android:id="@+id/createFormAddressInput"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:ems="10"
-
-                android:inputType="textPostalAddress"
-                android:text="Address"
-                app:layout_constraintStart_toStartOf="@+id/createFormAddress"
-                app:layout_constraintTop_toBottomOf="@+id/createFormAddress" />
-
-            <TextView
-                android:id="@+id/createFormPhoneNumberText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/PhoneNumber"
-                app:layout_constraintStart_toStartOf="@+id/createFormAddressInput"
-                app:layout_constraintTop_toBottomOf="@+id/createFormAddressInput" />
-
-            <EditText
-                android:id="@+id/createFormPhoneNumberInput"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="36dp"
-                android:ems="10"
-                android:inputType="phone"
-                android:text="@string/PhoneNumber"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/createFormPhoneNumberText" />
+                app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 
-            <TextView
-                android:id="@+id/createFormDiscriptionText"
-                android:layout_width="wrap_content"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/collectedCard"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Discription"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:layout_marginTop="50dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/DesignTop">
 
-                app:layout_constraintStart_toStartOf="@+id/createFormPhoneNumberText"
-                app:layout_constraintTop_toBottomOf="@+id/createFormPhoneNumberInput"
+                <LinearLayout
+                    android:background="@drawable/collection_card_ui"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
 
-                />
+                    <TextView
+                        android:id="@+id/tvUsername"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:drawableLeft="@drawable/ic_collections"
+                        android:drawablePadding="20dp"
+                        android:text="Card Collection"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/createFormDiscriptionTextInput"
-                android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/cardNumberCollected"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:text="15 cards"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_keyboard_arrow_right_black"
+                        android:translationX="-10dp" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/SendCard"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:gravity="start|top"
+                android:layout_gravity="center"
+                android:layout_marginTop="0dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/collectedCard">
 
-                android:inputType="textMultiLine"
-                android:lines="10"
-                android:maxLines="4"
-                android:text="Discription"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/createFormDiscriptionText"
-                app:layout_constraintTop_toBottomOf="@+id/createFormDiscriptionText" />
+                <LinearLayout
+                    android:background="@drawable/post_card_ui"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:id="@+id/cardNumbessss"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:drawableLeft="@drawable/ic_send"
+                        android:drawablePadding="20dp"
+                        android:text="Card Send"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/CardPulished"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="70dp"
+                        android:text="10 cards"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_keyboard_arrow_right_black"
+                        android:translationX="-10dp" />
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/postCardForm"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:cardCornerRadius="20dp"
+                android:layout_marginTop="20dp"
+
+                app:cardUseCompatPadding="true"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/SendCard"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingRight="20dp">
+
+                    <TextView
+                        android:id="@+id/createFormTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Title"
+                        android:textColor="@color/colorGreen"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+
+                        />
+
+
+                    <EditText
+                        android:id="@+id/createFormTitleInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_assignment_black"
+                        android:drawablePadding="8dp"
+                        android:hint=" Enter Your Topic here."
+                        android:inputType="textPersonName"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp" />
+
+
+                    <TextView
+                        android:id="@+id/createFormPhoneNumberText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Phone Number"
+                        android:textColor="@color/colorGreen"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/createFormPhoneNumberInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:drawableLeft="@drawable/ic_local_phone"
+                        android:drawablePadding="8dp"
+                        android:ems="10"
+
+                        android:hint="PhoneNumber"
+                        android:inputType="phone"
+                        android:paddingLeft="8dp" />
+
+                    <TextView
+                        android:id="@+id/createFormAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Address"
+                        android:textColor="@color/colorGreen"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/createFormAddressInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+
+                        android:drawableLeft="@drawable/ic_home"
+                        android:drawablePadding="8dp"
+                        android:hint="address here."
+                        android:inputType="textPostalAddress|textMultiLine"
+                        android:lines="6"
+                        android:maxLines="6"
+                        android:minLines="2"
+                        android:paddingLeft="8dp" />
+
+
+                    <TextView
+                        android:id="@+id/createFormDiscriptionText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Description"
+                        android:textColor="@color/colorGreen"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/createFormDiscriptionTextInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="@drawable/edit_text_ui"
+                        android:gravity="start|top"
+                        android:hint="Descriptions...."
+                        android:inputType="text|textMultiLine"
+                        android:minLines="8"
+                        android:padding="8dp"
+                        android:scrollbars="vertical"
+                        android:scrollHorizontally="false"
+                        />
+
+                    <Button
+
+                        android:id="@+id/FormSubmit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="30dp"
+                        android:background="@drawable/bg_ui"
+                        android:text="Login"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="22sp" />
+                </LinearLayout>
+
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
+
+    </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
