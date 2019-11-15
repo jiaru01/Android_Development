@@ -10,9 +10,7 @@
     <!--10.22-->
 
 
-    <include
-        android:id="@+id/profile_toolbar"
-        layout="@layout/toolbar" />
+
 
     <Button
         android:id="@+id/btnLogin"
