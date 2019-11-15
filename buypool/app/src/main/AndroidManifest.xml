@@ -10,12 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".NoticeActivity"></activity>
-        <activity android:name=".CardSend" />
-        <activity android:name=".CardCollection" />
+        <activity android:name=".CardSendActivity" />
+        <activity android:name=".CardCollectionActivity" />
         <activity
             android:name=".AnotherPageActivity"
-            android:parentActivityName=".BuyPoolDisplayPage" />
-        <activity android:name=".BuyPoolDisplayPage" />
+            android:parentActivityName=".BuyPoolDisplayPageActivity" />
+        <activity android:name=".BuyPoolDisplayPageActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".SignUpActivity" />

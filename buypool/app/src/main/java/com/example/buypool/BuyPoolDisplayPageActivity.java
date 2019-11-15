@@ -16,9 +16,8 @@ import android.widget.Toast;
 
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class BuyPoolDisplayPage extends AppCompatActivity {
+public class BuyPoolDisplayPageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +35,7 @@ public class BuyPoolDisplayPage extends AppCompatActivity {
 // Tool Bars ends here
 
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = findViewById(R.id.recyclerViewBuyPoolPage);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));//create a recycling view in a linear layout
         MyAdapter Myadapter = new MyAdapter( this,getMyList());
         recyclerView.setAdapter(Myadapter);
@@ -44,19 +43,49 @@ public class BuyPoolDisplayPage extends AppCompatActivity {
 
     }
 
+    //modifiy the return data as and set model
     private ArrayList<Model> getMyList(){
+
         ArrayList<Model> models = new ArrayList<>();
 
         Model m = new Model();//We built this model
+        m.setTitle("New 33 Feeds");
+        m.setDesription("This is newsfeed descripstion");
+        m.setImg(R.drawable.male);
+        m.setDate("14/11/2019");
+        m.setAddress("road");
+        m.setUserNameOnCard("Jack");
+        models.add(m);
+
+         m = new Model();//We built this model
+        m.setTitle("New 44Feeds");
+        m.setDesription("This is newsfeed descripstiLorem ipsum dolor sit " +
+                "\n amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt uLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt uLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt uon");
+        m.setImg(R.drawable.male);
+        m.setDate("15/11/2019");
+        m.setAddress("Grove");
+        m.setUserNameOnCard("morephy");
+        models.add(m);
+
+
+        m = new Model();//We built this model
         m.setTitle("New Feeds");
         m.setDesription("This is newsfeed descripstion");
         m.setImg(R.drawable.male);
+        m.setDate("16/11/2019");
+        m.setAddress("Grove");
+        m.setUserNameOnCard("wahhha");
+
         models.add(m);
 
          m = new Model();//We built this model
         m.setTitle("New Feeds");
-        m.setDesription("This is newsfeed descripstiLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt uLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt uLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt uon");
+        m.setDesription("This is newsfeed descripstion");
         m.setImg(R.drawable.male);
+        m.setDate("15/11/2019");
+        m.setAddress("Grove");
+        m.setUserNameOnCard("wahhha");
+
         models.add(m);
 
 
@@ -64,38 +93,22 @@ public class BuyPoolDisplayPage extends AppCompatActivity {
         m.setTitle("New Feeds");
         m.setDesription("This is newsfeed descripstion");
         m.setImg(R.drawable.male);
-        models.add(m);
+        m.setDate("15/11/2019");
+        m.setUserNameOnCard("wahhha");
 
-         m = new Model();//We built this model
-        m.setTitle("New Feeds");
-        m.setDesription("This is newsfeed descripstion");
-        m.setImg(R.drawable.male);
-        models.add(m);
-
-
-        m = new Model();//We built this model
-        m.setTitle("New Feeds");
-        m.setDesription("This is newsfeed descripstion");
-        m.setImg(R.drawable.male);
+        m.setAddress("Grove");
         models.add(m);
 
         m = new Model();//We built this model
         m.setTitle("New Feeds");
         m.setDesription("This is newsfeed descripstion");
         m.setImg(R.drawable.male);
+        m.setDate("15/11/2019");
+        m.setUserNameOnCard("wahhha");
+
+        m.setAddress("Grove");
         models.add(m);
 
-        m = new Model();//We built this model
-        m.setTitle("New Feeds");
-        m.setDesription("This is newsfeed descripstion");
-        m.setImg(R.drawable.male);
-        models.add(m);
-
-        m = new Model();//We built this model
-        m.setTitle("New Feeds");
-        m.setDesription("This is newsfeed descripstion");
-        m.setImg(R.drawable.male);
-        models.add(m);
 
         return models;
     }

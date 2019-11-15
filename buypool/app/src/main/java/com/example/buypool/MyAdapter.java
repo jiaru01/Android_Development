@@ -35,6 +35,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
     public void onBindViewHolder(@NonNull final MyHolder myHolder, final int position) {
         myHolder.mTitle.setText(models.get(position).getTitle());
         myHolder.mDes.setText(models.get(position).getDesription());
+        myHolder.mDate.setText(models.get(position).getDate());
+        myHolder.mAddress.setText(models.get(position).getAddress());
+        myHolder.mUserNameOnCard.setText(models.get(position).getUserNameOnCard());
+
 
 //        This is a way to get image from Resource drawable ,
 //        but just leave it ;if we want to return image fro data base the this like should be change

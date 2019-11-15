@@ -50,7 +50,7 @@
                 app:layout_constraintTop_toTopOf="@+id/DesignTop" />
 
             <TextView
-                android:id="@+id/UserName"
+                android:id="@+id/UserNameOnCard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"

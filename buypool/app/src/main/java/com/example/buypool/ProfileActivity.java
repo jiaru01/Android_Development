@@ -55,13 +55,13 @@ public class ProfileActivity extends AppCompatActivity {
 
     //function move to a collection card
     public void toCardCollectionActivity() {
-        Intent intent = new Intent(this,CardCollection.class);
+        Intent intent = new Intent(this, CardCollectionActivity.class);
         startActivity(intent);
     }
 
     public void toCardSendActivity() {
         //function move to a send card
-        Intent intent = new Intent(this,CardSend.class);
+        Intent intent = new Intent(this, CardSendActivity.class);
         startActivity(intent);
     }
 

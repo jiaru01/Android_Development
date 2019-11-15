@@ -24,7 +24,7 @@ public class NoticeActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         toolbar.getOverflowIcon().setColorFilter(ContextCompat.getColor(this, R.color.white), PorterDuff.Mode.SRC_ATOP);
 
-//Sets tool bar ends here
+        //Sets tool bar ends here
 
     }
 
