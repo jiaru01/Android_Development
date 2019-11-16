@@ -48,6 +48,9 @@ public class ShowCardDetailActivity extends AppCompatActivity {
         mAddressmDateTv=findViewById(R.id.DetailsAddress);
         mPhoneNumberTv=findViewById(R.id.DetailsPhoneNumber);
         mUserNameOnCardTv=findViewById(R.id.CardPublisherName);
+        mDateTv=findViewById(R.id.detailsDate);
+
+
 
 
         //Part 2 Get activity
@@ -57,6 +60,8 @@ public class ShowCardDetailActivity extends AppCompatActivity {
         String mPhoneNumber = getIntent().getStringExtra("iPhoneNumber");
         String mAdress = getIntent().getStringExtra("iAddress");
         String mUserNameOnCard = getIntent().getStringExtra("iUserNameOnCard");
+        String mDate = getIntent().getStringExtra("iDate");
+
 
         byte[] mBytes = getIntent().getByteArrayExtra("iImage");
         Bitmap bitmap = BitmapFactory.decodeByteArray(mBytes , 0 , mBytes.length);
@@ -67,8 +72,11 @@ public class ShowCardDetailActivity extends AppCompatActivity {
         mDesTv.setText(mDes);
         mPhoneNumberTv.setText(mPhoneNumber);
         mUserNameOnCardTv.setText(mUserNameOnCard);
+        mDateTv.setText(mDate);
+
         mAddressmDateTv.setText(mAdress);
         mImageTv.setImageBitmap(bitmap);
+
 
     }
 }

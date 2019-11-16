@@ -132,11 +132,10 @@
                 app:layout_constraintStart_toEndOf="@+id/CardDetailTextViewTitle" />
 
             <TextView
-
                 android:id="@+id/createFormPhoneNumberText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="92dp"
                 android:padding="10dp"
                 android:text="@string/PhoneNumber"
                 android:textColor="@color/colorGreen"
@@ -164,6 +163,25 @@
 
                 />
 
+
+            <TextView
+                android:id="@+id/CardDetailTextViewDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:padding="10dp"
+                android:text="Published Date: "
+                android:textColor="@color/colorGreen"
+                android:textSize="22sp"
+                android:textStyle="bold"
+
+                app:layout_constraintEnd_toEndOf="parent"
+
+
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/CardDetailTextViewTitle"
+                app:layout_constraintTop_toBottomOf="@+id/CardDetailTextViewTitle" />
+
             <TextView
                 android:id="@+id/DetailsPhoneNumber"
                 android:layout_width="wrap_content"
@@ -180,6 +198,20 @@
                 app:layout_constraintHorizontal_bias="0.166"
                 app:layout_constraintStart_toEndOf="@+id/createFormPhoneNumberText" />
 
+
+            <TextView
+                android:id="@+id/detailsDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:paddingLeft="8dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="23-23-2109"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/CardDetailTextViewDate"
+                app:layout_constraintStart_toEndOf="@+id/CardDetailTextViewDate" />
 
             <TextView
 

@@ -54,6 +54,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
                 String gAddress = models.get(position).getAddress();
                 String gPhoneNumber = models.get(position).getPhoneNumber();
                 String gUserNameOnCard = models.get(position).getUserNameOnCard();
+                String gDate = models.get(position).getDate();
 
                 String gTitle = models.get(position).getTitle();
                 String gDesc = models.get(position).getDesription();//get data from previous activity
@@ -74,6 +75,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
                 intent.putExtra("iAddress", gAddress);
                 intent.putExtra("iPhoneNumber", gPhoneNumber);
                 intent.putExtra("iUserNameOnCard", gUserNameOnCard);
+                intent.putExtra("iDate", gDate);
+
 
                 //???
                 c.startActivity(intent);
