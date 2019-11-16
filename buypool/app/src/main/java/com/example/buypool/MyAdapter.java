@@ -61,7 +61,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
                 byte[] bytes = stream.toByteArray();
 
                 //get out data with intent
-                Intent intent = new Intent(c, AnotherPageActivity.class);
+                Intent intent = new Intent(c, ShowCardDetailActivity.class);
                 intent.putExtra("iTitle", gTitle);
                 intent.putExtra("iDesc", gDesc);
                 intent.putExtra("iImage", bytes);

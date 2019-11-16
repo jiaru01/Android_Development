@@ -3,8 +3,8 @@
     <string name="appName">BuyPool  !</string>
 
     <string name="UserName">UserName</string>
-    <string name="Name">Name</string>
-    <string name="PhoneNumber">Phone Number</string>
+    <string name="Name">Name: </string>
+    <string name="PhoneNumber">Phone Number: </string>
 
     <string name="Login">Login</string>
     <string name="SignUp">SignUp</string>
@@ -33,9 +33,9 @@
     <string name="Title"> Title</string>
     <string name="TitleHintEnterText"> Enter Your Topic here</string>
     <string name="PhoneNumberHintEnterText">Enter Your Phone Number here</string>
-    <string name="Address"> Address</string>
+    <string name="Address"> Address: </string>
     <string name="AddressHere"> Enter Your Address here</string>
-    <string name="Description"> Description</string>
+    <string name="Description"> Description: </string>
     <string name="DescriptionEnter"> Please enter your description here</string>
     <string name="DesignTopContentDiscription"> Profile page top backgroup</string>
     <string name="CollectedCardContentDiscription"> Profile page move to Collected Card  </string>
