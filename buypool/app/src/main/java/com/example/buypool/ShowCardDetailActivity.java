@@ -9,11 +9,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ShowCardDetailActivity extends AppCompatActivity {
-    TextView mTitleTv, mDesTv;
+    TextView mTitleTv, mDesTv,mDateTv, mAddressmDateTv, mUserNameOnCardTv,mPhoneNumberTv;
     ImageView mImageTv;
 
     @Override
@@ -34,21 +35,28 @@ public class ShowCardDetailActivity extends AppCompatActivity {
 //Sets tool bar ends here
 
 
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+
 
 
         //in this activity we will use a back button
 
         ActionBar actionBar = getSupportActionBar();
-
         mTitleTv = findViewById(R.id.TitleAnotherPage);
         mDesTv = findViewById(R.id.descriptionAnotherPage);
         mImageTv = findViewById(R.id.imageAnotherPage);
+        mAddressmDateTv=findViewById(R.id.DetailsAddress);
+        mPhoneNumberTv=findViewById(R.id.DetailsPhoneNumber);
+        mUserNameOnCardTv=findViewById(R.id.CardPublisherName);
 
 
         //Part 2 Get activity
-
-        String mTitle = getIntent().getStringExtra("mTitle");
+//        iAddress
+        String mTitle = getIntent().getStringExtra("iTitle");
         String mDes = getIntent().getStringExtra("iDesc");
+        String mPhoneNumber = getIntent().getStringExtra("iPhoneNumber");
+        String mAdress = getIntent().getStringExtra("iAddress");
+        String mUserNameOnCard = getIntent().getStringExtra("iUserNameOnCard");
 
         byte[] mBytes = getIntent().getByteArrayExtra("iImage");
         Bitmap bitmap = BitmapFactory.decodeByteArray(mBytes , 0 , mBytes.length);
@@ -57,6 +65,9 @@ public class ShowCardDetailActivity extends AppCompatActivity {
 
         mTitleTv.setText(mTitle);
         mDesTv.setText(mDes);
+        mPhoneNumberTv.setText(mPhoneNumber);
+        mUserNameOnCardTv.setText(mUserNameOnCard);
+        mAddressmDateTv.setText(mAdress);
         mImageTv.setImageBitmap(bitmap);
 
     }

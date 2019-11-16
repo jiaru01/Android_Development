@@ -38,6 +38,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
         myHolder.mDate.setText(models.get(position).getDate());
         myHolder.mAddress.setText(models.get(position).getAddress());
         myHolder.mUserNameOnCard.setText(models.get(position).getUserNameOnCard());
+        myHolder.mcardPhoneNumber.setText(models.get(position).getPhoneNumber());
+
 
 
 //        This is a way to get image from Resource drawable ,
@@ -49,6 +51,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
         myHolder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemClickListener(View v, int position) {
+                String gAddress = models.get(position).getAddress();
+                String gPhoneNumber = models.get(position).getPhoneNumber();
+                String gUserNameOnCard = models.get(position).getUserNameOnCard();
+
                 String gTitle = models.get(position).getTitle();
                 String gDesc = models.get(position).getDesription();//get data from previous activity
                 BitmapDrawable bitmapDrawable = (BitmapDrawable) myHolder.mImaeView.getDrawable(); // this will get our image from drawble
@@ -65,6 +71,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
                 intent.putExtra("iTitle", gTitle);
                 intent.putExtra("iDesc", gDesc);
                 intent.putExtra("iImage", bytes);
+                intent.putExtra("iAddress", gAddress);
+                intent.putExtra("iPhoneNumber", gPhoneNumber);
+                intent.putExtra("iUserNameOnCard", gUserNameOnCard);
+
                 //???
                 c.startActivity(intent);
 

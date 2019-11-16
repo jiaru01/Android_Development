@@ -55,6 +55,8 @@ public class BuyPoolDisplayPageActivity extends AppCompatActivity {
         m.setDate("14/11/2019");
         m.setAddress("road");
         m.setUserNameOnCard("Jack");
+        m.setPhoneNumber("1231234");
+
         models.add(m);
 
          m = new Model();//We built this model
@@ -65,6 +67,8 @@ public class BuyPoolDisplayPageActivity extends AppCompatActivity {
         m.setDate("15/11/2019");
         m.setAddress("Grove");
         m.setUserNameOnCard("morephy");
+        m.setPhoneNumber("087929292");
+
         models.add(m);
 
 
@@ -75,6 +79,7 @@ public class BuyPoolDisplayPageActivity extends AppCompatActivity {
         m.setDate("16/11/2019");
         m.setAddress("Grove");
         m.setUserNameOnCard("wahhha");
+        m.setPhoneNumber("087929292");
 
         models.add(m);
 
@@ -85,6 +90,7 @@ public class BuyPoolDisplayPageActivity extends AppCompatActivity {
         m.setDate("15/11/2019");
         m.setAddress("Grove");
         m.setUserNameOnCard("wahhha");
+        m.setPhoneNumber("087929292");
 
         models.add(m);
 
@@ -95,6 +101,7 @@ public class BuyPoolDisplayPageActivity extends AppCompatActivity {
         m.setImg(R.drawable.male);
         m.setDate("15/11/2019");
         m.setUserNameOnCard("wahhha");
+        m.setPhoneNumber("087929292");
 
         m.setAddress("Grove");
         models.add(m);
@@ -105,6 +112,7 @@ public class BuyPoolDisplayPageActivity extends AppCompatActivity {
         m.setImg(R.drawable.male);
         m.setDate("15/11/2019");
         m.setUserNameOnCard("wahhha");
+        m.setPhoneNumber("1231234");
 
         m.setAddress("Grove");
         models.add(m);

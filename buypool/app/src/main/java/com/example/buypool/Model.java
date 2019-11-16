@@ -6,6 +6,17 @@ public class Model {
     private String date;
     private String address;
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    private String phoneNumber;
+
+
 
 
     private String UserNameOnCard;
