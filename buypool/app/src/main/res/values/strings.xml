@@ -31,6 +31,8 @@
     <string name="Card_Collection"> Card Collection</string>
     <string name="Card_Send"> Card Send</string>
     <string name="Title"> Title</string>
+    <string name="Submit"> Submit</string>
+
     <string name="TitleHintEnterText"> Enter Your Topic here</string>
     <string name="PhoneNumberHintEnterText">Enter Your Phone Number here</string>
     <string name="Address"> Address: </string>
@@ -43,5 +45,6 @@
 
     <!-- String Profile page End Here-->
 
+    <string name="contendDiscriptionBackgruo">  background design</string>
 
 </resources>

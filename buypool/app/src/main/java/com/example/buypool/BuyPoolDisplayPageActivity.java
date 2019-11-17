@@ -53,7 +53,7 @@ public class BuyPoolDisplayPageActivity extends AppCompatActivity {
         m.setDesription("This is newsfeed descripstion");
         m.setImg(R.drawable.male);
         m.setDate("14/11/2019");
-        m.setAddress("road");
+        m.setAddress("roaThis is newsfeed descripstiond");
         m.setUserNameOnCard("Jack");
         m.setPhoneNumber("1231234");
 

@@ -12,6 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
+        android:background="@drawable/card_backgrould"
+
         >
 
         <TextView
@@ -19,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="Title"
+            android:text="@string/Title"
             android:textColor="@android:color/background_dark"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -30,11 +32,11 @@
             android:id="@+id/descriptionTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/textview"
+            android:layout_marginTop="10dp"
             android:lines="4"
             android:maxLines="4"
             android:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-            android:textColor="#a9a9a9"
+            android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/floatingActionButton"
             app:layout_constraintEnd_toEndOf="parent"
@@ -53,6 +55,7 @@
             android:id="@+id/locationIcon"
             android:layout_width="35dp"
             android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/descriptionTv"
@@ -65,6 +68,7 @@
             android:layout_height="wrap_content"
             android:text="NameHere"
             android:textSize="18sp"
+            android:textColor="@color/colorWhite"
             app:layout_constraintBottom_toBottomOf="@+id/imageTv"
             app:layout_constraintStart_toStartOf="@+id/TitleTv"
             app:layout_constraintTop_toBottomOf="@+id/TitleTv" />
@@ -87,28 +91,30 @@
             android:id="@+id/address_idTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="10dp"
             android:ems="7"
             android:maxLines="4"
-
-            android:text="AddressHeresndasnmndasndasdnasmdnasdasdasd"
-            android:textColor="@color/design_default_color_primary"
+            android:text="road"
+            android:textColor="@color/colorWhite"
             android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/locationIcon"
-            app:layout_constraintTop_toBottomOf="@+id/descriptionTv" />
+            app:layout_constraintStart_toEndOf="@+id/locationIcon" />
 
         <TextView
             android:id="@+id/date_idTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:text="12-10-2019"
-            android:textSize="22sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/UserNameOnCard"
+            android:textSize="20sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/TitleTv"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/UserNameOnCard" />
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintStart_toEndOf="@+id/TitleTv" />
 
         <TextView
             android:id="@+id/cardPhoneNumber"
@@ -116,7 +122,8 @@
             android:layout_height="wrap_content"
             android:text="0879889829"
             android:textSize="16sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/TitleTv"
+            app:layout_constraintBaseline_toBaselineOf="@+id/UserNameOnCard"
+            app:layout_constraintEnd_toEndOf="@+id/date_idTv"
             app:layout_constraintStart_toStartOf="@+id/date_idTv" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

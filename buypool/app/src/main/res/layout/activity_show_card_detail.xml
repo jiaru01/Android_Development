@@ -42,15 +42,8 @@
         android:src="@drawable/circletransparant"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <!--    <TextView-->
-    <!--        android:id="@+id/textView2"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="TextView"-->
-    <!--        tools:layout_editor_absoluteX="131dp"-->
-    <!--        tools:layout_editor_absoluteY="150dp" />-->
 
-    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
 
 
     <ImageView
@@ -112,10 +105,12 @@
                 android:id="@+id/CardPublisherName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:text="Card Publiser name"
                 app:layout_constraintStart_toStartOf="@+id/imageAnotherPage"
-                app:layout_constraintTop_toBottomOf="@+id/imageAnotherPage" />
+                app:layout_constraintTop_toBottomOf="@+id/imageAnotherPage"
+                android:textSize="18dp"
+                />
 
             <TextView
                 android:id="@+id/TitleAnotherPage"

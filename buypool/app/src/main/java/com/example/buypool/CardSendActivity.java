@@ -7,6 +7,10 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 
 public class CardSendActivity extends AppCompatActivity {
 
@@ -26,6 +30,92 @@ public class CardSendActivity extends AppCompatActivity {
 
 //Sets tool bar ends here
 
+        RecyclerView recyclerView = findViewById(R.id.recyclerViewSendCard);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));//create a recycling view in a linear layout
+        MyAdapter Myadapter = new MyAdapter( this,getMyList());
+        recyclerView.setAdapter(Myadapter);
+
+
 
     }
+
+
+    //modifiy the return data as and set model
+    private ArrayList<Model> getMyList(){
+
+        ArrayList<Model> models = new ArrayList<>();
+
+        Model m = new Model();//We built this model
+        m.setTitle("New 33 Feeds");
+        m.setDesription("This is newsfeed descripstion");
+        m.setImg(R.drawable.male);
+        m.setDate("14/11/2019");
+        m.setAddress("roaThis is newsfeed descripstiond");
+        m.setUserNameOnCard("Jack");
+        m.setPhoneNumber("1231234");
+
+        models.add(m);
+
+        m = new Model();//We built this model
+        m.setTitle("New 44Feeds");
+        m.setDesription("This is newsfeed descripstiLorem ipsum dolor sit " +
+                "\n amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt uLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt uLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt uon");
+        m.setImg(R.drawable.male);
+        m.setDate("15/11/2019");
+        m.setAddress("Grove");
+        m.setUserNameOnCard("morephy");
+        m.setPhoneNumber("087929292");
+
+        models.add(m);
+
+
+        m = new Model();//We built this model
+        m.setTitle("New Feeds");
+        m.setDesription("This is newsfeed descripstion");
+        m.setImg(R.drawable.male);
+        m.setDate("16/11/2019");
+        m.setAddress("Grove");
+        m.setUserNameOnCard("wahhha");
+        m.setPhoneNumber("087929292");
+
+        models.add(m);
+
+        m = new Model();//We built this model
+        m.setTitle("New Feeds");
+        m.setDesription("This is newsfeed descripstion");
+        m.setImg(R.drawable.male);
+        m.setDate("15/11/2019");
+        m.setAddress("Grove");
+        m.setUserNameOnCard("wahhha");
+        m.setPhoneNumber("087929292");
+
+        models.add(m);
+
+
+        m = new Model();//We built this model
+        m.setTitle("New Feeds");
+        m.setDesription("This is newsfeed descripstion");
+        m.setImg(R.drawable.male);
+        m.setDate("15/11/2019");
+        m.setUserNameOnCard("wahhha");
+        m.setPhoneNumber("087929292");
+
+        m.setAddress("Grove");
+        models.add(m);
+
+        m = new Model();//We built this model
+        m.setTitle("New Feeds");
+        m.setDesription("This is newsfeed descripstion");
+        m.setImg(R.drawable.male);
+        m.setDate("15/11/2019");
+        m.setUserNameOnCard("wahhha");
+        m.setPhoneNumber("1231234");
+
+        m.setAddress("Grove");
+        models.add(m);
+
+
+        return models;
+    }
+
 }
