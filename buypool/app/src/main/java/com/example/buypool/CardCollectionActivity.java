@@ -28,7 +28,7 @@ public class CardCollectionActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.CardCollectionTooBar);
         setSupportActionBar(toolbar);
         TextView textView = toolbar.findViewById(R.id.toolbar_title);
-        textView.setText("Card Collection");
+        textView.setText("Card Collected");
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         toolbar.getOverflowIcon().setColorFilter(ContextCompat.getColor(this, R.color.white), PorterDuff.Mode.SRC_ATOP);
 
@@ -37,7 +37,7 @@ public class CardCollectionActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.recyclerViewCardCollection);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));//create a recycling view in a linear layout
-        MyAdapter Myadapter = new MyAdapter( this,getMyList());
+        CardCollectionAdapter Myadapter = new CardCollectionAdapter( this,getMyList());
         recyclerView.setAdapter(Myadapter);
 
 

@@ -61,7 +61,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     public void toCardSendActivity() {
         //function move to a send card
-        Intent intent = new Intent(this, CardSendActivity.class);
+        Intent intent = new Intent(this, SendCardActivity.class);
         startActivity(intent);
     }
 

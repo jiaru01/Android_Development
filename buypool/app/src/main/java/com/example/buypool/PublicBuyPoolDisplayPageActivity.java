@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class BuyPoolDisplayPageActivity extends AppCompatActivity {
+public class PublicBuyPoolDisplayPageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +37,8 @@ public class BuyPoolDisplayPageActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.recyclerViewBuyPoolPage);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));//create a recycling view in a linear layout
-        MyAdapter Myadapter = new MyAdapter( this,getMyList());
-        recyclerView.setAdapter(Myadapter);
+        PublicCardAdapter myadapter = new PublicCardAdapter( this,getMyList());
+        recyclerView.setAdapter(myadapter);
 
 
     }
@@ -70,7 +70,6 @@ public class BuyPoolDisplayPageActivity extends AppCompatActivity {
         m.setPhoneNumber("087929292");
 
         models.add(m);
-
 
         m = new Model();//We built this model
         m.setTitle("New Feeds");

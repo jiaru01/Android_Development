@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MyHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     ImageView mImaeView;
-    TextView mTitle, mDes, mDate, mAddress, mUserNameOnCard,mcardPhoneNumber;
+    TextView mTitle, mDes, mDate, mAddress, mUserNameOnCard,mcardPhoneNumber,mCardStatus;
 
     ItemClickListener itemClickListener;
 
@@ -23,6 +23,7 @@ public class MyHolder extends RecyclerView.ViewHolder implements View.OnClickLis
         this.mAddress = itemView.findViewById(R.id.address_idTv);
         this.mcardPhoneNumber = itemView.findViewById(R.id.cardPhoneNumber);
         this.mUserNameOnCard = itemView.findViewById(R.id.UserNameOnCard);
+        this.mCardStatus = itemView.findViewById(R.id.CurrentCardStatues);
 
         //this is part2 , add listener
         itemView.setOnClickListener(this);

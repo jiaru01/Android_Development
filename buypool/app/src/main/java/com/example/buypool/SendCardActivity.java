@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class CardSendActivity extends AppCompatActivity {
+public class SendCardActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +32,8 @@ public class CardSendActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.recyclerViewSendCard);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));//create a recycling view in a linear layout
-        MyAdapter Myadapter = new MyAdapter( this,getMyList());
-        recyclerView.setAdapter(Myadapter);
+        SendCardAdapter myadapter = new SendCardAdapter( this,getMyList());
+        recyclerView.setAdapter(myadapter);
 
 
 
@@ -53,6 +53,7 @@ public class CardSendActivity extends AppCompatActivity {
         m.setAddress("roaThis is newsfeed descripstiond");
         m.setUserNameOnCard("Jack");
         m.setPhoneNumber("1231234");
+        m.setCardStatus("on Public");
 
         models.add(m);
 
@@ -65,6 +66,8 @@ public class CardSendActivity extends AppCompatActivity {
         m.setAddress("Grove");
         m.setUserNameOnCard("morephy");
         m.setPhoneNumber("087929292");
+        m.setCardStatus("on Public");
+
 
         models.add(m);
 
@@ -77,6 +80,8 @@ public class CardSendActivity extends AppCompatActivity {
         m.setAddress("Grove");
         m.setUserNameOnCard("wahhha");
         m.setPhoneNumber("087929292");
+        m.setCardStatus("on Public");
+
 
         models.add(m);
 
@@ -88,6 +93,8 @@ public class CardSendActivity extends AppCompatActivity {
         m.setAddress("Grove");
         m.setUserNameOnCard("wahhha");
         m.setPhoneNumber("087929292");
+        m.setCardStatus("on Public");
+
 
         models.add(m);
 
@@ -110,6 +117,7 @@ public class CardSendActivity extends AppCompatActivity {
         m.setDate("15/11/2019");
         m.setUserNameOnCard("wahhha");
         m.setPhoneNumber("1231234");
+        m.setCardStatus("on Public");
 
         m.setAddress("Grove");
         models.add(m);

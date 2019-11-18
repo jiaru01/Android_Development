@@ -6,6 +6,24 @@ public class Model {
     private String date;
     private String address;
 
+    private String phoneNumber;
+
+    private String cardStatus;
+    private String UserNameOnCard;
+
+    private int img;
+
+
+    public String getCardStatus() {
+        return cardStatus;
+    }
+
+    public void setCardStatus(String cardStatus) {
+        this.cardStatus = cardStatus;
+    }
+
+   
+
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -14,15 +32,7 @@ public class Model {
         this.phoneNumber = phoneNumber;
     }
 
-    private String phoneNumber;
-
-
-
-
-    private String UserNameOnCard;
-
-    private int img;
-
+    
     public String getTitle() {
         return title;
     }

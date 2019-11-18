@@ -14,12 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
-public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
+public class PublicCardAdapter extends RecyclerView.Adapter<MyHolder> {
     Context c;
     ArrayList<Model> models;
 //     this array list create a list of array which parameter define in our model class
 
-    public MyAdapter(Context c, ArrayList<Model> models) {
+    public PublicCardAdapter(Context c, ArrayList<Model> models) {
         this.c = c;
         this.models = models;
     }
@@ -27,7 +27,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
     @NonNull
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.row, null); //this line inflate our row
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.public_card, null); //this line inflate our public_card
         return new MyHolder(view);//this will return our view to holder class
     }
 
