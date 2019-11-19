@@ -13,6 +13,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class SignUpActivity extends AppCompatActivity {
+    //This class used for signUp acitivity
+    //what it does
+        //Signup and store the information into database
+
     private Button btnLogin , btnSignup, getBtnSignup;
     private EditText userName,email,password,phoneNumber;
 

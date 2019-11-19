@@ -18,6 +18,13 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class PublicBuyPoolDisplayPageActivity extends AppCompatActivity {
+    //    This Class uses on Card Your BuyPoolDsplay activitys or Public gallery activitys ,
+//    This class used to control
+    //1. Action bar
+    //2.Implement returned information from database and fill it into each cards
+    //3. go to other activity page i.e profile
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

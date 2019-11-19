@@ -1,6 +1,8 @@
 package com.example.buypool;
 
 public class Model {
+    //This Activity used to create getter and setter methods ,
+    // uses to set and get information with cardsviews
     private String title;
     private String desription;
     private String date;
@@ -22,7 +24,6 @@ public class Model {
         this.cardStatus = cardStatus;
     }
 
-   
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -32,7 +33,7 @@ public class Model {
         this.phoneNumber = phoneNumber;
     }
 
-    
+
     public String getTitle() {
         return title;
     }
@@ -57,14 +58,27 @@ public class Model {
         return img;
     }
 
-    public String getDate() { return date; }
+    public String getDate() {
+        return date;
+    }
 
-    public void setDate(String date) { this.date = date; }
+    public void setDate(String date) {
+        this.date = date;
+    }
 
-    public String getAddress() { return address; }
+    public String getAddress() {
+        return address;
+    }
 
-    public void setAddress(String address) { this.address = address; }
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-    public String getUserNameOnCard() { return UserNameOnCard;    }
-    public void setUserNameOnCard(String userNameOnCard) { UserNameOnCard = userNameOnCard;    }
+    public String getUserNameOnCard() {
+        return UserNameOnCard;
+    }
+
+    public void setUserNameOnCard(String userNameOnCard) {
+        UserNameOnCard = userNameOnCard;
+    }
 }

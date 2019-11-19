@@ -6,16 +6,18 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class CardCollectionActivity extends AppCompatActivity {
+//    This Class uses on Card Your collected activitys ,
+//    This class used to control
+        //1. Action bar
+        //2.Implement returned information from database and fill it into each cards
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +36,13 @@ public class CardCollectionActivity extends AppCompatActivity {
 
 //Sets tool bar ends here
 
-
+//Create of RecyclerView - starts here
         RecyclerView recyclerView = findViewById(R.id.recyclerViewCardCollection);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));//create a recycling view in a linear layout
         CardCollectionAdapter Myadapter = new CardCollectionAdapter( this,getMyList());
         recyclerView.setAdapter(Myadapter);
 
-
+//RecyclerView Ends Here
 
 
     }

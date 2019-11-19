@@ -21,6 +21,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class ShowCardDetailActivity extends AppCompatActivity {
+    //This class used with activity activity_show_card_detail,
+    //what it does
+    //1. Recieved intent information from cards and post onto activity_show_card_detail activity
+    //2. This Class also allow the app to connect with and use at least one Activity from another Android application
+    // i.e Make a phone call , if buttin been pressed
     TextView mTitleTv, mDesTv,mDateTv, mAddressmDateTv, mUserNameOnCardTv,mPhoneNumberTv, mCallPhoneNumber;
     ImageView mImageTv;
     private static final int REQUEST_CALL = 1;

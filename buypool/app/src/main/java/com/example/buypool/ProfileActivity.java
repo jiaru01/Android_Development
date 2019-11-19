@@ -15,6 +15,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
 public class ProfileActivity extends AppCompatActivity {
+    //This class associate with profile acitivity ,
+    //what is does
+        //1. Set Action bar heading
+        //2. go into other activity i.e Card Your collected and Cards you Upload Activity
 
 
     @Override
@@ -74,6 +78,8 @@ public class ProfileActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+//       Go into different activity page if a user clicked onto given icons
+
         int id = item.getItemId();
 
         if (id == R.id.share) {

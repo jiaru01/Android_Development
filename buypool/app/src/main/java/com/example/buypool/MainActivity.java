@@ -15,6 +15,9 @@ import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
+//    This class is associate with Login activity
+    //what it does is that it is able to implenement login function i.e verifys user details with database
+
     private Button btnLogin , btnSignup, getBtnLogin;
     private EditText email, password;
     private CheckBox remember;
@@ -26,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         btnSignup = findViewById(R.id.btnSignup);
         getBtnLogin = findViewById(R.id.ButtonLoginInto);
-        email = (EditText) findViewById(R.id.EnterEmail);
-        password = (EditText) findViewById(R.id.Password);
-        remember = (CheckBox) findViewById(R.id.checkBox);
+        email =  findViewById(R.id.EnterEmail);
+        password = findViewById(R.id.Password);
+        remember = findViewById(R.id.checkBox);
 
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,21 +46,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         getUser();
-//        btnLogin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                openLoginActivity();
-//            }
-//        });
+
     }
     public void openSignUpActivity() {
         Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
     }
-//    public void openLoginActivity() {
-//        Intent intent = new Intent(this, MainActivity.class);
-//        startActivity(intent);
-//    }
+
     public void getUser(){
         LocalDatabase helper = new LocalDatabase(getApplicationContext(), "User", null, 1);
         SQLiteDatabase db = helper.getWritableDatabase();

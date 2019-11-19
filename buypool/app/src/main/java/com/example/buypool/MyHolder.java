@@ -8,6 +8,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MyHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    //This class used with Recycle view i.e card implementation
+    //This class names a variable i.e those variable associated with find each ID on the cards ,
+    //Thos variable the used in each recycler view adapter
     ImageView mImaeView;
     TextView mTitle, mDes, mDate, mAddress, mUserNameOnCard,mcardPhoneNumber,mCardStatus;
 

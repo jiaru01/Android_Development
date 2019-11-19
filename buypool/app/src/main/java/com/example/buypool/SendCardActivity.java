@@ -13,6 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class SendCardActivity extends AppCompatActivity {
+//    This Class uses on Card Your sent activitys ,
+//    This class used to control
+    //1. Action bar
+    //2.Implement returned information from database and fill it into each cards
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

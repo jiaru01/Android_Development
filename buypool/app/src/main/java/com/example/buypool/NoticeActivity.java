@@ -12,11 +12,12 @@ public class NoticeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice);
 
         //Set Tool Bar starts here
-
         Toolbar toolbar = findViewById(R.id.NoticeTooBar);
         setSupportActionBar(toolbar);
         TextView textView = toolbar.findViewById(R.id.toolbar_title);

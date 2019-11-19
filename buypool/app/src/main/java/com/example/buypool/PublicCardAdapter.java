@@ -15,6 +15,14 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class PublicCardAdapter extends RecyclerView.Adapter<MyHolder> {
+    //    This Class Used as Adapter for recyclerView that located in PublicBuyPoolDisplay class
+    //what it does
+    //1.receives all cards information and put into put those information on to cards
+    //2. It also passes intent information of cards to activity_show_card_Details ,
+    // as user clicks the card and wants to view detail description of that cards.
+
+
+
     Context c;
     ArrayList<Model> models;
 //     this array list create a list of array which parameter define in our model class
