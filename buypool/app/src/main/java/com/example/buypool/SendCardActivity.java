@@ -24,7 +24,7 @@ public class SendCardActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.SendCardTooBar);
         setSupportActionBar(toolbar);
         TextView textView = toolbar.findViewById(R.id.toolbar_title);
-        textView.setText("Card Sent");
+        textView.setText("Cards Your Uploaded");
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         toolbar.getOverflowIcon().setColorFilter(ContextCompat.getColor(this, R.color.white), PorterDuff.Mode.SRC_ATOP);
 

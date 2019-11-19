@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context=".ShowCardDetailActivity"
+
+
+    >
+
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+
+        android:layout_marginStart="516dp"
+        android:layout_marginTop="156dp"
+        android:contentDescription="@string/Description"
+        android:src="@drawable/circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="204dp"
+        android:contentDescription="@string/Description"
+
+        android:src="@drawable/circletransparant"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+
+        android:contentDescription="@string/Description"
+        android:src="@drawable/circletransparant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/Description"
+        android:src="@drawable/circletransparant"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <ScrollView
+
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="-29dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:scrollbars="vertical">
+
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_gravity="bottom"
+                android:src="@drawable/header_login"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageAnotherPage"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginTop="124dp"
+                android:src="@drawable/female"
+                app:layout_constraintEnd_toEndOf="parent"
+
+
+                app:layout_constraintHorizontal_bias="0.454"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/CardPublisherName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Card Publiser name"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="@+id/imageAnotherPage"
+                app:layout_constraintTop_toBottomOf="@+id/imageAnotherPage" />
+
+            <TextView
+                android:id="@+id/TitleAnotherPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+
+                android:text="This will be the Title"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="normal"
+
+                app:layout_constraintBaseline_toBaselineOf="@+id/CardDetailTextViewTitle"
+                app:layout_constraintStart_toEndOf="@+id/CardDetailTextViewTitle" />
+
+            <TextView
+                android:id="@+id/createFormPhoneNumberText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="92dp"
+                android:padding="10dp"
+                android:text="@string/PhoneNumber"
+                android:textColor="@color/colorGreen"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/CardDetailTextViewTitle"
+                app:layout_constraintTop_toTopOf="@+id/TitleAnotherPage" />
+
+
+            <TextView
+                android:id="@+id/CardDetailTextViewTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+
+                android:padding="10dp"
+                android:text="Title: "
+                android:textColor="@color/colorGreen"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintHorizontal_bias="0.279"
+                app:layout_constraintStart_toStartOf="parent"
+
+
+                app:layout_constraintTop_toBottomOf="@+id/CardPublisherName" />
+
+            <TextView
+                android:id="@+id/CardDetailTextViewDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:padding="10dp"
+                android:text="Published Date: "
+                android:textColor="@color/colorGreen"
+                android:textSize="22sp"
+                android:textStyle="bold"
+
+                app:layout_constraintEnd_toEndOf="parent"
+
+
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/CardDetailTextViewTitle"
+                app:layout_constraintTop_toBottomOf="@+id/CardDetailTextViewTitle" />
+
+            <TextView
+                android:id="@+id/DetailsPhoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:paddingLeft="8dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="087989829"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/createFormPhoneNumberText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.166"
+                app:layout_constraintStart_toEndOf="@+id/createFormPhoneNumberText" />
+
+
+            <TextView
+                android:id="@+id/detailsDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:paddingLeft="8dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="23-23-2109"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/CardDetailTextViewDate"
+                app:layout_constraintStart_toEndOf="@+id/CardDetailTextViewDate" />
+
+            <TextView
+
+                android:id="@+id/CardDetailTextViewAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/Address"
+                android:textColor="@color/colorGreen"
+                android:textSize="22sp"
+                android:textStyle="bold"
+
+                app:layout_constraintStart_toStartOf="@+id/createFormPhoneNumberText"
+                app:layout_constraintTop_toBottomOf="@+id/createFormPhoneNumberText" />
+
+
+            <TextView
+                android:id="@+id/DetailsAddress"
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+
+                android:background="@drawable/edit_text_ui"
+                android:padding="12dp"
+                android:text="29 jack \n caaaa \n streey"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintHorizontal_bias="0.096"
+                app:layout_constraintStart_toStartOf="@+id/CardDetailTextViewAddress"
+                app:layout_constraintTop_toBottomOf="@+id/CardDetailTextViewAddress" />
+
+            <TextView
+
+                android:id="@+id/CardDetailTextViewDiscrtiption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:padding="10dp"
+                android:text="@string/Description"
+                android:textColor="@color/colorGreen"
+                android:textSize="22sp"
+
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/CardDetailTextViewAddress"
+                app:layout_constraintTop_toBottomOf="@+id/DetailsAddress" />
+
+
+            <TextView
+                android:id="@+id/descriptionAnotherPage"
+                android:layout_width="450dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/edit_text_ui"
+                android:padding="12dp"
+                android:text="29 jack \n caaaa \n streeCardDetailTextViewDiscrtiptiony \n \n streeCardDetailTextViewDiscrtiptiony \n\n streeCardDetailTextViewDiscrtiptiony \n\n streeCardDetailTextViewDiscrtiptiony \n\n streeCardDetailTextViewDiscrtiptiony \n streeCardDetailTextViewDiscrtiptiony \n streeCardDetailTextViewDiscrtiptiony,last line"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/CardDetailTextViewDiscrtiption"
+                app:layout_constraintTop_toBottomOf="@+id/CardDetailTextViewDiscrtiption"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/Make_Call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/call_user"
+                android:drawableLeft="@drawable/ic_call_white"
+                android:drawablePadding="8dp"
+                android:padding="15dp"
+                android:text="Contact card Owner ?"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.526"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintTop_toBottomOf="@+id/descriptionAnotherPage"
+                app:layout_constraintVertical_bias="1.0" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

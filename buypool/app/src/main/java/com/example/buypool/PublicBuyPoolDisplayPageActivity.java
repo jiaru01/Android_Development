@@ -28,7 +28,7 @@ public class PublicBuyPoolDisplayPageActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.buyPool_toolbar_title);
         setSupportActionBar(toolbar);
         TextView textView = toolbar.findViewById(R.id.toolbar_title);
-        textView.setText("BuyPool");
+        textView.setText("Public Card Gallery");
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 //        Change color of the overflow 'The three dot' on Tool bar
         toolbar.getOverflowIcon().setColorFilter(ContextCompat.getColor(this, R.color.white), PorterDuff.Mode.SRC_ATOP);

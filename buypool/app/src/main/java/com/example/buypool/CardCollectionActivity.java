@@ -28,7 +28,7 @@ public class CardCollectionActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.CardCollectionTooBar);
         setSupportActionBar(toolbar);
         TextView textView = toolbar.findViewById(R.id.toolbar_title);
-        textView.setText("Card Collected");
+        textView.setText("Cards You Collected");
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         toolbar.getOverflowIcon().setColorFilter(ContextCompat.getColor(this, R.color.white), PorterDuff.Mode.SRC_ATOP);
 
