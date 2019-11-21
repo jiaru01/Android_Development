@@ -21,10 +21,9 @@
             android:id="@+id/TitleTv"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:text="@string/Title"
-            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
             android:maxLines="4"
+            android:text="@string/Title"
             android:textColor="@android:color/background_dark"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -51,6 +50,8 @@
             android:id="@+id/imageTv"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@mipmap/ic_launcher" />
@@ -83,14 +84,14 @@
             android:id="@+id/floatingActionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="32dp"
             android:layout_marginBottom="8dp"
             android:clickable="true"
+            android:focusable="false"
             app:backgroundTint="#4CAF50"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:maxImageSize="50dp"
-            android:focusable="false"
             app:srcCompat="@drawable/ic_add_card_botton" />
 
         <TextView
@@ -113,13 +114,12 @@
             android:id="@+id/date_idTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="4dp"
             android:text="12-10-2019"
             android:textSize="20sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/TitleTv"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.9"
             app:layout_constraintStart_toEndOf="@+id/TitleTv" />
 
         <TextView
@@ -129,8 +129,7 @@
             android:text="0879889829"
             android:textSize="16sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/UserNameOnCard"
-            app:layout_constraintEnd_toEndOf="@+id/date_idTv"
-            app:layout_constraintStart_toStartOf="@+id/date_idTv" />
+            app:layout_constraintEnd_toEndOf="@+id/date_idTv" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

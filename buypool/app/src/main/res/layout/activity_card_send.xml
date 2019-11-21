@@ -33,17 +33,6 @@
         app:srcCompat="@drawable/circle" />
 
     <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginEnd="348dp"
-        android:layout_marginBottom="552dp"
-        android:contentDescription="@string/contendDiscriptionBackgruo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/circle" />
-
-    <ImageView
         android:id="@+id/imageView7"
         android:layout_width="200dp"
         android:layout_height="200dp"
