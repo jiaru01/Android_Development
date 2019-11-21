@@ -75,7 +75,7 @@ public class PublicBuyPoolDisplayPageActivity extends AppCompatActivity {
             String title = cardlist.getString(0);
             String description = cardlist.getString(1);
             String address = cardlist.getString(2);
-            String time = cardlist.getString(3);
+            String time = cardlist.getString(3).split(" ")[0];
             String phoneNumber = cardlist.getString(4);
             String username = cardlist.getString(5);
             int gender = cardlist.getInt(6);
