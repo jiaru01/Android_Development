@@ -1,12 +1,15 @@
 package com.example.buypool;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,11 +27,17 @@ public class SendCardAdapter extends RecyclerView.Adapter<MyHolder> {
 
     Context c;
     ArrayList<Model> models;
+    LocalDatabase helper ;
+    SQLiteDatabase db ;
+    CurrentUserInfo userInfo;
 //     this array list create a list of array which parameter define in our model class
 
-    public SendCardAdapter(Context c, ArrayList<Model> models) {
+    public SendCardAdapter(Context c, ArrayList<Model> models,CurrentUserInfo currentUserInfo) {
         this.c = c;
         this.models = models;
+        helper = new LocalDatabase(c, "Cards", null, 1);
+        db = helper.getWritableDatabase();
+        userInfo = (CurrentUserInfo) currentUserInfo;
     }
 
     @NonNull
@@ -40,13 +49,34 @@ public class SendCardAdapter extends RecyclerView.Adapter<MyHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull final MyHolder myHolder, final int position) {
-        myHolder.mCardStatus.setText(models.get(position).getCardStatus());
+        int cardStatus = models.get(position).getCardStatus();
+        if (cardStatus == 0)
+             myHolder.mCardStatus.setText("Pending");
+        else if (cardStatus == 1)
+            myHolder.mCardStatus.setText("In processing");
+        else
+            myHolder.mCardStatus.setText("Completed");
         myHolder.mTitle.setText(models.get(position).getTitle());
         myHolder.mDes.setText(models.get(position).getDesription());
         myHolder.mDate.setText(models.get(position).getDate());
         myHolder.mAddress.setText(models.get(position).getAddress());
         myHolder.mUserNameOnCard.setText(models.get(position).getUserNameOnCard());
         myHolder.mcardPhoneNumber.setText(models.get(position).getPhoneNumber());
+        myHolder.DontWantCardSent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int cardID = models.get(position).getCardID();
+                int cardDelete = db.delete("cards", "id = ?", new String[]{"" + cardID});
+                if (cardDelete >0){
+                    Toast.makeText(c, "Order is dropped successfully", Toast.LENGTH_LONG).show();
+                    //update ui
+                    models.remove(position);
+                    notifyDataSetChanged();
+                }
+                else
+                    Toast.makeText(c, "Order is dropped unsuccessfully, please try it later!", Toast.LENGTH_LONG).show();
+            }
+        });
 
 
 

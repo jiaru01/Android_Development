@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:background="@drawable/card_backgrould"
+        android:descendantFocusability="blocksDescendants"
 
         >
 
@@ -89,6 +90,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:maxImageSize="50dp"
+            android:focusable="false"
             app:srcCompat="@drawable/ic_add_card_botton" />
 
         <TextView

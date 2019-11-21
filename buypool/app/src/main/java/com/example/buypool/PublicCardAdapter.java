@@ -1,12 +1,15 @@
 package com.example.buypool;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,11 +28,18 @@ public class PublicCardAdapter extends RecyclerView.Adapter<MyHolder> {
 
     Context c;
     ArrayList<Model> models;
+    LocalDatabase helper ;
+    SQLiteDatabase db ;
+    CurrentUserInfo userInfo;
+
 //     this array list create a list of array which parameter define in our model class
 
-    public PublicCardAdapter(Context c, ArrayList<Model> models) {
+    public PublicCardAdapter(Context c, ArrayList<Model> models, CurrentUserInfo currentUserInfo) {
         this.c = c;
         this.models = models;
+        helper = new LocalDatabase(c, "Cards", null, 1);
+        db = helper.getWritableDatabase();
+        userInfo = currentUserInfo;
     }
 
     @NonNull
@@ -47,7 +57,31 @@ public class PublicCardAdapter extends RecyclerView.Adapter<MyHolder> {
         myHolder.mAddress.setText(models.get(position).getAddress());
         myHolder.mUserNameOnCard.setText(models.get(position).getUserNameOnCard());
         myHolder.mcardPhoneNumber.setText(models.get(position).getPhoneNumber());
-
+        myHolder.addCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int cardID = models.get(position).getCardID();
+                ContentValues contentValue = new ContentValues();
+                contentValue.put("cardStatus", "1");
+                int cardUpdate = db.update("cards", contentValue, "id = ?", new String[]{"" + cardID});
+                if (cardUpdate != 1) {
+                    Toast.makeText(c, "Order is accepted unsuccessfully, please try it later!"+cardID, Toast.LENGTH_LONG).show();
+                    return;
+                }
+                ContentValues contentValue1 = new ContentValues();
+                contentValue1.put("cardID", cardID);
+                contentValue1.put("order_userID", ""+userInfo.getID());
+                long orderInsert = db.insert("orders", null, contentValue1);
+                if (orderInsert > 0) {
+                    Toast.makeText(c, "Order is accepted successfully", Toast.LENGTH_LONG).show();
+                    //update ui
+                    models.remove(position);
+                    notifyDataSetChanged();
+                } else {
+                    Toast.makeText(c, "Order is accepted unsuccessfully, please try it later!!!!", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
 
 
 //        This is a way to get image from Resource drawable ,

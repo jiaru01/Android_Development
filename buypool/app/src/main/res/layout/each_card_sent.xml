@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:background="@drawable/card_backgrould"
-
+        android:descendantFocusability="blocksDescendants"
         >
 
         <TextView
@@ -68,7 +68,7 @@
             app:layout_constraintTop_toBottomOf="@+id/TitleTv" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/DontWantCard"
+            android:id="@+id/DontWantCardSent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -79,6 +79,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/descriptionTv"
             app:maxImageSize="50dp"
+            android:focusable="false"
             app:srcCompat="@drawable/ic_remove" />
 
         <TextView

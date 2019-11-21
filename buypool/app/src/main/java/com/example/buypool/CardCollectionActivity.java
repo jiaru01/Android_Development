@@ -6,6 +6,8 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -18,6 +20,7 @@ public class CardCollectionActivity extends AppCompatActivity {
         //1. Action bar
         //2.Implement returned information from database and fill it into each cards
 
+    CurrentUserInfo userInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +42,7 @@ public class CardCollectionActivity extends AppCompatActivity {
 //Create of RecyclerView - starts here
         RecyclerView recyclerView = findViewById(R.id.recyclerViewCardCollection);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));//create a recycling view in a linear layout
-        CardCollectionAdapter Myadapter = new CardCollectionAdapter( this,getMyList());
+        CardCollectionAdapter Myadapter = new CardCollectionAdapter( this,getMyList(),userInfo);
         recyclerView.setAdapter(Myadapter);
 
 //RecyclerView Ends Here
@@ -50,68 +53,34 @@ public class CardCollectionActivity extends AppCompatActivity {
     private ArrayList<Model> getMyList(){
 
         ArrayList<Model> models = new ArrayList<>();
-
-        Model m = new Model();//We built this model
-        m.setTitle("here is card collection baby ");
-        m.setDesription("This is newsfeed descripstion");
-        m.setImg(R.drawable.male);
-        m.setDate("14/11/2019");
-        m.setAddress("road");
-        m.setUserNameOnCard("Jack");
-        models.add(m);
-
-        m = new Model();//We built this model
-        m.setTitle("New 44Feeds");
-        m.setDesription("This is newsfeed descripstiLorem ipsum dolor sit " +
-                "\n amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt uLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt uLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt uon");
-        m.setImg(R.drawable.male);
-        m.setDate("15/11/2019");
-        m.setAddress("Grove");
-        m.setUserNameOnCard("morephy");
-        models.add(m);
-
-
-        m = new Model();//We built this model
-        m.setTitle("New Feeds");
-        m.setDesription("This is newsfeed descripstion");
-        m.setImg(R.drawable.male);
-        m.setDate("16/11/2019");
-        m.setAddress("Grove");
-        m.setUserNameOnCard("wahhha");
-
-        models.add(m);
-
-        m = new Model();//We built this model
-        m.setTitle("New Feeds");
-        m.setDesription("This is newsfeed descripstion");
-        m.setImg(R.drawable.male);
-        m.setDate("15/11/2019");
-        m.setAddress("Grove");
-        m.setUserNameOnCard("wahhha");
-
-        models.add(m);
-
-
-        m = new Model();//We built this model
-        m.setTitle("New Feeds");
-        m.setDesription("This is newsfeed descripstion");
-        m.setImg(R.drawable.male);
-        m.setDate("15/11/2019");
-        m.setUserNameOnCard("wahhha");
-
-        m.setAddress("Grove");
-        models.add(m);
-
-        m = new Model();//We built this model
-        m.setTitle("New Feeds");
-        m.setDesription("This is newsfeed descripstion");
-        m.setImg(R.drawable.male);
-        m.setDate("15/11/2019");
-        m.setUserNameOnCard("wahhha");
-
-        m.setAddress("Grove");
-        models.add(m);
-
+        LocalDatabase helper = new LocalDatabase(getApplicationContext(), "Cards", null, 1);
+        SQLiteDatabase db = helper.getWritableDatabase();
+        //GET ALL THE cards the current_user collected
+        userInfo = (CurrentUserInfo) getApplicationContext();
+        String sql = "SELECT title,description,address,date,cards.phone_number,username,gender,cardStatus,cards.id FROM cards,orders,usersremote where cards.id = orders.cardID AND orders.order_userID = ? AND cards.create_userID = usersremote.id;";
+        Cursor cardlist = db.rawQuery(sql, new String[]{""+userInfo.getID()});
+        while (cardlist.moveToNext()){
+            String title = cardlist.getString(0);
+            String description = cardlist.getString(1);
+            String address = cardlist.getString(2);
+            String time = cardlist.getString(3);
+            String phoneNumber = cardlist.getString(4);
+            String username = cardlist.getString(5);
+            int gender = cardlist.getInt(6);
+            int cardStatus = cardlist.getInt(7);
+            int cardID = cardlist.getInt(8);
+            Model m = new Model();
+            m.setTitle(title);
+            m.setDesription(description);
+            m.setImg(gender == 0?R.drawable.male:R.drawable.female);
+            m.setDate(time);
+            m.setAddress(address);
+            m.setUserNameOnCard(username);
+            m.setPhoneNumber(phoneNumber);
+            m.setCardStatus(cardStatus);
+            m.setCardID(cardID);
+            models.add(m);
+        }
 
         return models;
     }

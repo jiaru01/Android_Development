@@ -6,14 +6,21 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewParent;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -24,13 +31,18 @@ public class PublicBuyPoolDisplayPageActivity extends AppCompatActivity {
     //2.Implement returned information from database and fill it into each cards
     //3. go to other activity page i.e profile
 
-
+    CurrentUserInfo userInfo;
+    ArrayList<Model> models = new ArrayList<>();
+    LocalDatabase helper;
+    SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy_pool_display_page);
 
+        helper= new LocalDatabase(getApplicationContext(), "Cards", null, 1);
+        db = helper.getWritableDatabase();
         //Tool Bar starts from here
         Toolbar toolbar = findViewById(R.id.buyPool_toolbar_title);
         setSupportActionBar(toolbar);
@@ -44,85 +56,43 @@ public class PublicBuyPoolDisplayPageActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.recyclerViewBuyPoolPage);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));//create a recycling view in a linear layout
-        PublicCardAdapter myadapter = new PublicCardAdapter( this,getMyList());
+        PublicCardAdapter myadapter = new PublicCardAdapter( this,getMyList(),userInfo);
         recyclerView.setAdapter(myadapter);
 
 
     }
 
+
     //modifiy the return data as and set model
     private ArrayList<Model> getMyList(){
 
-        ArrayList<Model> models = new ArrayList<>();
 
-        Model m = new Model();//We built this model
-        m.setTitle("New 33 Feeds");
-        m.setDesription("This is newsfeed descripstion");
-        m.setImg(R.drawable.male);
-        m.setDate("14/11/2019");
-        m.setAddress("roaThis is newsfeed descripstiond");
-        m.setUserNameOnCard("Jack");
-        m.setPhoneNumber("1231234");
-
-        models.add(m);
-
-         m = new Model();//We built this model
-        m.setTitle("New 44Feeds");
-        m.setDesription("This is newsfeed descripstiLorem ipsum dolor sit " +
-                "\n amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt uLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt uLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt uon");
-        m.setImg(R.drawable.male);
-        m.setDate("15/11/2019");
-        m.setAddress("Grove");
-        m.setUserNameOnCard("morephy");
-        m.setPhoneNumber("087929292");
-
-        models.add(m);
-
-        m = new Model();//We built this model
-        m.setTitle("New Feeds");
-        m.setDesription("This is newsfeed descripstion");
-        m.setImg(R.drawable.male);
-        m.setDate("16/11/2019");
-        m.setAddress("Grove");
-        m.setUserNameOnCard("wahhha");
-        m.setPhoneNumber("087929292");
-
-        models.add(m);
-
-         m = new Model();//We built this model
-        m.setTitle("New Feeds");
-        m.setDesription("This is newsfeed descripstion");
-        m.setImg(R.drawable.male);
-        m.setDate("15/11/2019");
-        m.setAddress("Grove");
-        m.setUserNameOnCard("wahhha");
-        m.setPhoneNumber("087929292");
-
-        models.add(m);
-
-
-        m = new Model();//We built this model
-        m.setTitle("New Feeds");
-        m.setDesription("This is newsfeed descripstion");
-        m.setImg(R.drawable.male);
-        m.setDate("15/11/2019");
-        m.setUserNameOnCard("wahhha");
-        m.setPhoneNumber("087929292");
-
-        m.setAddress("Grove");
-        models.add(m);
-
-        m = new Model();//We built this model
-        m.setTitle("New Feeds");
-        m.setDesription("This is newsfeed descripstion");
-        m.setImg(R.drawable.male);
-        m.setDate("15/11/2019");
-        m.setUserNameOnCard("wahhha");
-        m.setPhoneNumber("1231234");
-
-        m.setAddress("Grove");
-        models.add(m);
-
+//        Cursor cardlist = db.query("cards", null, null, null, null, null, null);
+        userInfo = (CurrentUserInfo) getApplicationContext();
+        String sql = "SELECT title,description,address,date,cards.phone_number,username,gender,cardStatus,cards.id FROM cards,usersremote where create_userID = usersremote.id AND cardStatus != 1 AND cardStatus != 2 AND create_userID != ?;";
+        Cursor cardlist = db.rawQuery(sql, new String[]{""+userInfo.getID()});
+        while (cardlist.moveToNext()){
+            String title = cardlist.getString(0);
+            String description = cardlist.getString(1);
+            String address = cardlist.getString(2);
+            String time = cardlist.getString(3);
+            String phoneNumber = cardlist.getString(4);
+            String username = cardlist.getString(5);
+            int gender = cardlist.getInt(6);
+            int cardStatus = cardlist.getInt(7);
+            int cardID = cardlist.getInt(8);
+            Model m = new Model();
+            m.setTitle(title);
+            m.setDesription(description);
+            m.setImg(gender == 0?R.drawable.male:R.drawable.female);
+            m.setDate(time);
+            m.setAddress(address);
+            m.setUserNameOnCard(username);
+            m.setPhoneNumber(phoneNumber);
+            m.setCardStatus(cardStatus);
+            m.setCardID(cardID);
+            models.add(m);
+        }
 
         return models;
     }

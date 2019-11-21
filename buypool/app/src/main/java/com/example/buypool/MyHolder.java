@@ -2,10 +2,13 @@ package com.example.buypool;
 
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MyHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     //This class used with Recycle view i.e card implementation
@@ -13,6 +16,8 @@ public class MyHolder extends RecyclerView.ViewHolder implements View.OnClickLis
     //Thos variable the used in each recycler view adapter
     ImageView mImaeView;
     TextView mTitle, mDes, mDate, mAddress, mUserNameOnCard,mcardPhoneNumber,mCardStatus;
+    Switch mCardCompeleted,mDontWantCard;
+    FloatingActionButton addCard,DontWantCardCollected,DontWantCardSent;
 
     ItemClickListener itemClickListener;
 
@@ -27,6 +32,10 @@ public class MyHolder extends RecyclerView.ViewHolder implements View.OnClickLis
         this.mcardPhoneNumber = itemView.findViewById(R.id.cardPhoneNumber);
         this.mUserNameOnCard = itemView.findViewById(R.id.UserNameOnCard);
         this.mCardStatus = itemView.findViewById(R.id.CurrentCardStatues);
+        this.mCardCompeleted = itemView.findViewById(R.id.CardFinishedOrNot);
+        this.DontWantCardCollected = itemView.findViewById(R.id.DontWantCardCollected);
+        this.DontWantCardSent = itemView.findViewById(R.id.DontWantCardSent);
+        this.addCard = itemView.findViewById(R.id.floatingActionButton);
 
         //this is part2 , add listener
         itemView.setOnClickListener(this);

@@ -2,6 +2,7 @@ package com.example.buypool;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Application;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnLogin , btnSignup, getBtnLogin;
     private EditText email, password;
     private CheckBox remember;
+    CurrentUserInfo userInfo ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getUser(){
-        LocalDatabase helper = new LocalDatabase(getApplicationContext(), "User", null, 1);
+        LocalDatabase helper = new LocalDatabase(getApplicationContext(), "Cards", null, 1);
         SQLiteDatabase db = helper.getWritableDatabase();
         Cursor users = db.query("userslocal", null, null, null, null, null, null);
             if (users.moveToLast()){
@@ -77,13 +79,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void storeUser(){
-        LocalDatabase helper = new LocalDatabase(getApplicationContext(), "User", null, 1);
+        LocalDatabase helper = new LocalDatabase(getApplicationContext(), "Cards", null, 1);
         SQLiteDatabase db = helper.getWritableDatabase();
         String email = this.email.getText().toString();
         String password = this.password.getText().toString();
         Cursor usersremote = db.query("usersremote", null, "email=? and password=?", new String[]{email, password}, null, null, null);
-        if (usersremote.moveToLast()){
-            Toast.makeText(getApplicationContext(), "ok", Toast.LENGTH_LONG).show();
+        if (usersremote.moveToNext()){
+            userInfo = (CurrentUserInfo) getApplicationContext();
+            userInfo.setID(usersremote.getInt(0));
+            userInfo.setUserName(usersremote.getString(1));
+            userInfo.setPhoneNumber(usersremote.getString(4));
             if (this.remember.isChecked()){
                 Cursor user = db.query("userslocal", null, "email=?", new String[]{email}, null, null, null);
                 if (user.moveToLast()){
@@ -106,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Username or Password Wrong!", Toast.LENGTH_LONG).show();
             return;
         }
+
         Intent intent = new Intent(this, PublicBuyPoolDisplayPageActivity.class);
         startActivity(intent);
 
