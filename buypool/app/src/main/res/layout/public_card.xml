@@ -16,14 +16,14 @@
         android:descendantFocusability="blocksDescendants"
 
         >
-
         <TextView
             android:id="@+id/TitleTv"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:maxLines="4"
+            android:layout_marginStart="20dp"
             android:text="@string/Title"
+            android:layout_marginBottom="8dp"
+            android:maxLines="4"
             android:textColor="@android:color/background_dark"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -50,22 +50,9 @@
             android:id="@+id/imageTv"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@mipmap/ic_launcher" />
-
-        <ImageView
-            android:id="@+id/locationIcon"
-            android:layout_width="35dp"
-            android:layout_height="40dp"
-            android:layout_marginBottom="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/descriptionTv"
-            app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@drawable/ic_location" />
 
         <TextView
             android:id="@+id/UserNameOnCard"
@@ -80,19 +67,43 @@
             app:layout_constraintStart_toStartOf="@+id/TitleTv"
             app:layout_constraintTop_toBottomOf="@+id/TitleTv" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
+
+
+
+        <TextView
+            android:id="@+id/date_idTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="8dp"
-            android:clickable="true"
-            android:focusable="false"
-            app:backgroundTint="#4CAF50"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="12-10-2019"
+            android:textSize="20sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/TitleTv"
             app:layout_constraintEnd_toEndOf="parent"
-            app:maxImageSize="50dp"
-            app:srcCompat="@drawable/ic_add_card_botton" />
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintStart_toEndOf="@+id/TitleTv" />
+
+        <TextView
+            android:id="@+id/cardPhoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="0879889829"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/date_idTv"
+            app:layout_constraintStart_toStartOf="@+id/date_idTv"
+            app:layout_constraintTop_toBottomOf="@+id/date_idTv" />
+
+        <ImageView
+            android:id="@+id/locationIcon"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionTv"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/ic_location" />
 
         <TextView
             android:id="@+id/address_idTv"
@@ -110,26 +121,19 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/locationIcon" />
 
-        <TextView
-            android:id="@+id/date_idTv"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="4dp"
-            android:text="12-10-2019"
-            android:textSize="20sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/TitleTv"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="8dp"
+            android:clickable="true"
+            android:focusable="false"
+            app:backgroundTint="#4CAF50"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/TitleTv" />
-
-        <TextView
-            android:id="@+id/cardPhoneNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0879889829"
-            android:textSize="16sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/UserNameOnCard"
-            app:layout_constraintEnd_toEndOf="@+id/date_idTv" />
+            app:maxImageSize="50dp"
+            app:srcCompat="@drawable/ic_add_card_botton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
