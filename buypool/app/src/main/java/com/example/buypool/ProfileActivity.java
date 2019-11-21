@@ -58,7 +58,7 @@ public class ProfileActivity extends AppCompatActivity {
         String sql1 = "SELECT count(*) FROM cards where create_userID = ?;";
         Cursor sent = db.rawQuery(sql1, new String[]{""+userInfo.getID()});
         sent.moveToNext();
-        int numbers = sent.getInt(0);
+        final int numbers = sent.getInt(0);
         sent.close();
         CardPulished.setText(numbers<=1?numbers+" card":numbers+" cards");
 
@@ -74,7 +74,7 @@ public class ProfileActivity extends AppCompatActivity {
         formSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addCard();
+                addCard(numbers);
 
             }
         });
@@ -151,7 +151,7 @@ public class ProfileActivity extends AppCompatActivity {
         return true;
 
     }
-    public void addCard( ){
+    public void addCard(int numbers ){
         String address = createFormAddressInput.getText().toString();
         String title = createFormTitleInput.getText().toString();
         String phoneNumber = createFormPhoneNumberInput.getText().toString();
@@ -198,6 +198,7 @@ public class ProfileActivity extends AppCompatActivity {
         contentValue.put("create_userID", ""+userInfo.getID());
         long cards = db.insert("cards", null, contentValue);
         if (cards > 0){
+            CardPulished.setText(numbers+1<=1?(numbers+1)+" card":(numbers+1)+" cards");
             Toast.makeText(getApplicationContext(), "Order is created successfully", Toast.LENGTH_LONG).show();
         }
 

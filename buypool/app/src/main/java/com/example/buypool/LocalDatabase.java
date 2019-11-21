@@ -18,7 +18,7 @@ public class LocalDatabase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table userslocal(id integer primary key autoincrement,email varchar(40), password varchar(30),is_remember int default 0);");
         db.execSQL("create table usersremote(id integer primary key autoincrement, username varchar(20),email varchar(40), password varchar(30),phone_number varchar(20),gender integer default 0);");
-        db.execSQL("create table cards(id integer primary key autoincrement, title varchar(100),description varchar(1000), date timestamp,address varchar(1000) not null,phone_number varchar(20) not null,cardStatus integer default 0,create_userID integer not null, FOREIGN KEY (create_userID) REFERENCES usersromote(id));");
+        db.execSQL("create table cards(id integer primary key autoincrement, title varchar(100),description varchar(1000), date timestamp default (datetime('now', 'localtime')),address varchar(1000) not null,phone_number varchar(20) not null,cardStatus integer default 0,create_userID integer not null, FOREIGN KEY (create_userID) REFERENCES usersromote(id));");
         db.execSQL("create table orders(cardID integer not null,order_userID integer not null, FOREIGN KEY (cardID) REFERENCES cards(id),FOREIGN KEY (order_userID) REFERENCES usersremote(id));");
 
         //initial the remote cards,just add some data
