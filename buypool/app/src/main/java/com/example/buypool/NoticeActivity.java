@@ -8,6 +8,8 @@ import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.widget.TextView;
 
+
+
 public class NoticeActivity extends AppCompatActivity {
 
     @Override
@@ -26,6 +28,9 @@ public class NoticeActivity extends AppCompatActivity {
         toolbar.getOverflowIcon().setColorFilter(ContextCompat.getColor(this, R.color.white), PorterDuff.Mode.SRC_ATOP);
 
         //Sets tool bar ends here
+
+
+
 
     }
 

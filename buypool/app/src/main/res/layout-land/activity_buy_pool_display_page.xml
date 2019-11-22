@@ -34,17 +34,6 @@
         app:srcCompat="@drawable/circle" />
 
     <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginEnd="632dp"
-        android:layout_marginBottom="196dp"
-        android:contentDescription="@string/contendDiscriptionBackgruo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/circle" />
-
-    <ImageView
         android:id="@+id/imageView7"
         android:layout_width="200dp"
         android:layout_height="200dp"
@@ -69,12 +58,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewBuyPoolPage"
-        android:layout_width="match_parent"
-        android:layout_marginTop="120dp"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="130dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintVertical_bias="0.059"
 
@@ -98,6 +87,56 @@
         app:layout_constraintHorizontal_bias="0.927"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/buyPool_toolbar_title" />
+
+
+    <ImageView
+        android:id="@+id/wheather_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/wheather"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buyPool_toolbar_title" />
+
+    <TextView
+        android:id="@+id/town"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Dublin"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/wheather_image"
+        app:layout_constraintTop_toTopOf="@+id/wheather_image" />
+
+    <TextView
+        android:id="@+id/temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="15°C"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/desc"
+        app:layout_constraintStart_toEndOf="@+id/desc" />
+
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Description"
+        android:textSize="18sp"
+        android:textStyle="italic"
+
+        app:layout_constraintEnd_toEndOf="@+id/town"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/town"
+        app:layout_constraintTop_toBottomOf="@+id/town" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
