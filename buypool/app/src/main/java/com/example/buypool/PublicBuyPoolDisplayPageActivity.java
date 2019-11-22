@@ -2,27 +2,28 @@ package com.example.buypool;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.Manifest;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.PorterDuff;
+import android.location.Location;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewParent;
+
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
@@ -53,6 +54,8 @@ public class PublicBuyPoolDisplayPageActivity extends AppCompatActivity {
 
     TextView view_temp;
     TextView view_desc;
+    TextView view_city;
+
 
     ImageView view_weather;
 
@@ -83,7 +86,8 @@ public class PublicBuyPoolDisplayPageActivity extends AppCompatActivity {
 
 //        weather api starts here
 
-
+        view_city=findViewById(R.id.town);
+        view_city.setText("");
 
          view_temp=findViewById(R.id.temp);
         view_temp.setText("");
@@ -91,6 +95,8 @@ public class PublicBuyPoolDisplayPageActivity extends AppCompatActivity {
         view_desc.setText("");
 
          view_weather=findViewById(R.id.wheather_image);
+
+        ActivityCompat.requestPermissions(PublicBuyPoolDisplayPageActivity.this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, 123);
 
         api_key();
 
@@ -165,56 +171,69 @@ public class PublicBuyPoolDisplayPageActivity extends AppCompatActivity {
     }
 
 
-    private void api_key() {
-        OkHttpClient client=new OkHttpClient();
-        Request request=new Request.Builder()
-                .url("https://api.openweathermap.org/data/2.5/weather?q=Dublin&appid=a6f41d947e0542a26580bcd5c3fb90ef&units=metric")
-                .get()
-                .build();
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
-        try {
+    private void api_key( ) {
+        GpsTracker gt = new GpsTracker(getApplicationContext());
+        Location l = gt.getLocation();
+        if( l == null){
+            Toast.makeText(getApplicationContext(),"GPS unable to get Value",Toast.LENGTH_SHORT).show();
+        }else {
+            double lat = l.getLatitude();
+            double lon = l.getLongitude();
 
-            Response response= client.newCall(request).execute();
-            client.newCall(request).enqueue(new Callback() {
-                @Override
-                public void onFailure(@NotNull Call call, @NotNull IOException e) {
 
-                }
+            OkHttpClient client=new OkHttpClient();
+            Request request=new Request.Builder()
+                    .url("https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=a6f41d947e0542a26580bcd5c3fb90ef&units=metric")
 
-                @Override
-                public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-                    String responseData= response.body().string();
-                    try {
-                        JSONObject json=new JSONObject(responseData);
-                        JSONArray array=json.getJSONArray("weather");
-                        JSONObject object=array.getJSONObject(0);
+                    .get()
+                    .build();
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            try {
+                Response response= client.newCall(request).execute();
+                client.newCall(request).enqueue(new Callback() {
+                    @Override
+                    public void onFailure(@NotNull Call call, @NotNull IOException e) {
 
-                        String description=object.getString("description");
-                        String icons = object.getString("icon");
-
-                        JSONObject temp1= json.getJSONObject("main");
-                        Double Temperature=temp1.getDouble("temp");
-
-//                        setText(view_city,City);
-
-                        String temps=Math.round(Temperature)+" °C";
-                        setText(view_temp,temps);
-                        setText(view_desc,description);
-                        setImage(view_weather,icons);
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
                     }
-                }
-            });
-        }catch (IOException e){
-            e.printStackTrace();
+
+                    @Override
+                    public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                        String responseData= response.body().string();
+                        try {
+                            JSONObject json=new JSONObject(responseData);
+                            JSONArray array=json.getJSONArray("weather");
+                            JSONObject object=array.getJSONObject(0);
+
+                            String description=object.getString("description");
+                            String icons = object.getString("icon");
+
+                            JSONObject temp1= json.getJSONObject("main");
+                            Double Temperature=temp1.getDouble("temp");
+
+                            String City=json.getString("name");
+                            setText(view_city,City);
+
+                            String temps=Math.round(Temperature)+" °C";
+                            setText(view_temp,temps);
+                            setText(view_desc,description);
+                            setImage(view_weather,icons);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+
+
         }
 
 
-    }
 
+    }
 
 
     private void setText(final TextView text, final String value){
