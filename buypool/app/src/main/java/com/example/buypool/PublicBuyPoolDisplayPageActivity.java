@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -172,7 +171,7 @@ public class PublicBuyPoolDisplayPageActivity extends AppCompatActivity {
 
 
     private void api_key( ) {
-        GpsTracker gt = new GpsTracker(getApplicationContext());
+        Gps gt = new Gps(getApplicationContext());
         Location l = gt.getLocation();
         if( l == null){
             Toast.makeText(getApplicationContext(),"GPS unable to get Value",Toast.LENGTH_SHORT).show();

@@ -12,15 +12,13 @@ import androidx.core.content.ContextCompat;
 
 import static android.content.Context.LOCATION_SERVICE;
 
-/**
- * Created by shiva on 8/4/17.
- */
 
-public class GpsTracker implements LocationListener {
+public class Gps implements LocationListener {
+    //This class used for track location
 
     Context context;
 
-    public GpsTracker(Context context) {
+    public Gps(Context context) {
         super();
         this.context = context;
     }
