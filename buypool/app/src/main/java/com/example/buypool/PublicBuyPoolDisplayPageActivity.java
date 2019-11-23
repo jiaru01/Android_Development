@@ -98,12 +98,15 @@ public class PublicBuyPoolDisplayPageActivity extends AppCompatActivity {
         ActivityCompat.requestPermissions(PublicBuyPoolDisplayPageActivity.this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, 123);
 
         api_key();
-
-
+        onBackPressed();
 
     }
 
-
+    @Override
+    public void onBackPressed() {
+        //Provent go back to login page
+        return;
+    }
     //modifiy the return data as and set model
     private ArrayList<Model> getMyList(){
 
@@ -149,18 +152,12 @@ public class PublicBuyPoolDisplayPageActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.share) {
+        if (id == R.id.Logout) {
             //change page should be here
-            Toast.makeText(getApplicationContext(), "Your click about", Toast.LENGTH_SHORT).show();
-
-        } else if (id == R.id.about) {
-            Toast.makeText(getApplicationContext(), "Your click about", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.toProfile) {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);}
+       else if (id == R.id.toProfile) {
             Intent intent = new Intent(this, ProfileActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.Notification) {
-
-            Intent intent = new Intent(this, NoticeActivity.class);
             startActivity(intent);
         }
 

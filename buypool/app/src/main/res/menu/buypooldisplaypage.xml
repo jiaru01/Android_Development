@@ -3,11 +3,9 @@
 
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/share"
-        android:title="Share" />
-    <item
-        android:id="@+id/about"
-        android:title="About" />
+        android:id="@+id/Logout"
+        android:title="Logout" />
+
 
     <item
         android:id="@+id/toProfile"
@@ -15,10 +13,5 @@
         android:title="@string/post_page_icon_that_happy_face"
         app:showAsAction="always" />
 
-    <item
-        android:id="@+id/Notification"
-        android:icon="@drawable/ic_notifications"
-        android:title="@string/notification_icon"
-        app:showAsAction="always" />
 
 </menu>

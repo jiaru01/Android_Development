@@ -22,14 +22,15 @@ import androidx.core.content.ContextCompat;
 public class ProfileActivity extends AppCompatActivity {
     //This class associate with profile acitivity ,
     //what is does
-        //1. Set Action bar heading
-        //2. go into other activity i.e Card Your collected and Cards you Upload Activity
+    //1. Set Action bar heading
+    //2. go into other activity i.e Card Your collected and Cards you Upload Activity
     CurrentUserInfo userInfo;
-    TextView userName,cardNumberCollected,CardPulished;
-    EditText createFormTitleInput,createFormPhoneNumberInput,createFormAddressInput,createFormDiscriptionTextInput;
+    TextView userName, cardNumberCollected, CardPulished;
+    EditText createFormTitleInput, createFormPhoneNumberInput, createFormAddressInput, createFormDiscriptionTextInput;
     Button formSubmit;
-    LocalDatabase helper ;
+    LocalDatabase helper;
     SQLiteDatabase db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,23 +45,23 @@ public class ProfileActivity extends AppCompatActivity {
         //set profile name
         userName.setText(name);
         helper = new LocalDatabase(getApplicationContext(), "Cards", null, 1);
-       db = helper.getWritableDatabase();
+        db = helper.getWritableDatabase();
 
         //get collected cards count
         String sql = "SELECT count(*) FROM orders where order_userID = ?;";
-        Cursor collected = db.rawQuery(sql, new String[]{""+userInfo.getID()});
+        Cursor collected = db.rawQuery(sql, new String[]{"" + userInfo.getID()});
         collected.moveToNext();
         int number = collected.getInt(0);
         collected.close();
-        cardNumberCollected.setText(number<=1?number+" card":number+" cards");
+        cardNumberCollected.setText(number <= 1 ? number + " card" : number + " cards");
 
         //get sent cards count
         String sql1 = "SELECT count(*) FROM cards where create_userID = ?;";
-        Cursor sent = db.rawQuery(sql1, new String[]{""+userInfo.getID()});
+        Cursor sent = db.rawQuery(sql1, new String[]{"" + userInfo.getID()});
         sent.moveToNext();
         final int numbers = sent.getInt(0);
         sent.close();
-        CardPulished.setText(numbers<=1?numbers+" card":numbers+" cards");
+        CardPulished.setText(numbers <= 1 ? numbers + " card" : numbers + " cards");
 
         //get the corresponding view
         createFormAddressInput = findViewById(R.id.createFormAddressInput);
@@ -78,8 +79,6 @@ public class ProfileActivity extends AppCompatActivity {
 
             }
         });
-
-
 
 
         //tool bar start here
@@ -139,52 +138,49 @@ public class ProfileActivity extends AppCompatActivity {
 
         int id = item.getItemId();
 
-        if (id == R.id.share) {
+        if (id == R.id.Logout) {
             //change page should be here
-            Toast.makeText(getApplicationContext(), "Your click share", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.about) {
-            Toast.makeText(getApplicationContext(), "Your click about", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.Notification) {
-            Intent intent = new Intent(this, NoticeActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
         return true;
 
     }
-    public void addCard(int numbers ){
+
+    public void addCard(int numbers) {
         String address = createFormAddressInput.getText().toString();
         String title = createFormTitleInput.getText().toString();
         String phoneNumber = createFormPhoneNumberInput.getText().toString();
         String description = createFormDiscriptionTextInput.getText().toString();
-        if (address.equals("") || title.equals("") ||phoneNumber.equals("")|| description.equals("")){
+        if (address.equals("") || title.equals("") || phoneNumber.equals("") || description.equals("")) {
             String text = "";
             int previous = 0;
-            if (title.equals("")){
-                text+= "title";
+            if (title.equals("")) {
+                text += "title";
                 previous = 1;
             }
             if (phoneNumber.equals(""))
-                if (previous == 0 ){
-                    text+= "phoneNumber";
+                if (previous == 0) {
+                    text += "phoneNumber";
                     previous = 1;
-                }else{
-                    text+=" and phoneNumber";
+                } else {
+                    text += " and phoneNumber";
                 }
             if (address.equals(""))
-                if (previous == 0 ){
-                    text+= "address";
+                if (previous == 0) {
+                    text += "address";
                     previous = 1;
-                }else{
-                    text+=" and address";
+                } else {
+                    text += " and address";
                 }
             if (description.equals(""))
-                if (previous == 0 ){
-                    text+= "description";
+                if (previous == 0) {
+                    text += "description";
                     previous = 1;
-                }else{
-                    text+=" and description";
+                } else {
+                    text += " and description";
                 }
-            text+= " can not be empty";
+            text += " can not be empty";
             Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG).show();
             return;
 
@@ -195,10 +191,10 @@ public class ProfileActivity extends AppCompatActivity {
         contentValue.put("phone_number", phoneNumber);
         contentValue.put("description", description);
         contentValue.put("cardStatus", "0");
-        contentValue.put("create_userID", ""+userInfo.getID());
+        contentValue.put("create_userID", "" + userInfo.getID());
         long cards = db.insert("cards", null, contentValue);
-        if (cards > 0){
-            CardPulished.setText(numbers+1<=1?(numbers+1)+" card":(numbers+1)+" cards");
+        if (cards > 0) {
+            CardPulished.setText(numbers + 1 <= 1 ? (numbers + 1) + " card" : (numbers + 1) + " cards");
             Toast.makeText(getApplicationContext(), "Order is created successfully", Toast.LENGTH_LONG).show();
         }
 
