@@ -79,7 +79,7 @@
         android:drawableRight="@drawable/ic_add_shopping_cart_black_24dp"
         android:drawablePadding="8dp"
         android:text="Welcome to BuyPool !!"
-        android:textColor="@color/Green"
+        android:textColor="@color/colorPurpleT"
         android:textSize="28sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
