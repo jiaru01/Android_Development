@@ -39,15 +39,12 @@ public class ShowCardDetailActivity extends AppCompatActivity {
 
         mCallPhoneNumber = findViewById(R.id.DetailsPhoneNumber);
         Button imageCall = findViewById(R.id.Make_Call);
-
         imageCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 makePhoneCall();
             }
         });
-
-
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
 
 

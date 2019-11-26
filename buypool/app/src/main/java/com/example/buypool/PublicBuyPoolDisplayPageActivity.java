@@ -86,10 +86,10 @@ public class PublicBuyPoolDisplayPageActivity extends AppCompatActivity {
 //        weather api starts here
 
         view_city=findViewById(R.id.town);
-        view_city.setText("");
+        view_city.setText("If not show weather ");
 
          view_temp=findViewById(R.id.temp);
-        view_temp.setText("");
+        view_temp.setText("This is due api delay by asking permssion Please restart the app ");
           view_desc=findViewById(R.id.desc);
         view_desc.setText("");
 
