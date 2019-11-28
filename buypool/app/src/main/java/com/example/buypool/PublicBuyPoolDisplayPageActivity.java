@@ -180,7 +180,6 @@ public class PublicBuyPoolDisplayPageActivity extends AppCompatActivity {
             OkHttpClient client=new OkHttpClient();
             Request request=new Request.Builder()
                     .url("https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=a6f41d947e0542a26580bcd5c3fb90ef&units=metric")
-
                     .get()
                     .build();
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -241,6 +240,7 @@ public class PublicBuyPoolDisplayPageActivity extends AppCompatActivity {
         });
     }
     private void setImage(final ImageView imageView, final String value){
+//        Reference https://github.com/Lukieoo/WheatherAplication
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
