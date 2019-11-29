@@ -15,13 +15,21 @@ public class LocalDatabase extends SQLiteOpenHelper {
     }
 
     @Override
+    /*
+    * create four tables:
+    * userlocal: to remember the login in information if needed
+    * usersremote: analog the remote server to store the whole clients information
+    * cards: store the order that created by users.
+    * orders: create relationship between users. for example: who accept the order  created by others.
+    * */
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table userslocal(id integer primary key autoincrement,email varchar(40), password varchar(30),is_remember int default 0);");
         db.execSQL("create table usersremote(id integer primary key autoincrement, username varchar(20),email varchar(40), password varchar(30),phone_number varchar(20),gender integer default 0);");
         db.execSQL("create table cards(id integer primary key autoincrement, title varchar(100),description varchar(1000), date timestamp default (datetime('now', 'localtime')),address varchar(1000) not null,phone_number varchar(20) not null,cardStatus integer default 0,create_userID integer not null, FOREIGN KEY (create_userID) REFERENCES usersromote(id));");
         db.execSQL("create table orders(cardID integer not null,order_userID integer not null, FOREIGN KEY (cardID) REFERENCES cards(id),FOREIGN KEY (order_userID) REFERENCES usersremote(id));");
 
-        //initial the remote cards,just add some data
+        //initial the remote cards,just add some data to the database
+        //total are 12 items.
         String[] email = {"renjie.fu@ucdconnect.ie", "jiaru.he@ucdconnect.ie", "xuewen.tan@ucdconnect.ie", "deyan.chen@ucdconnect.ie","abc@ucdconnect.ie","jone@ucdconnect.ie","phone@ucdconnect.ie","guess@ucdconnect.ie","dream@ucdconnect.ie","happy@ucdconnect.ie","people@ucdconnect.ie","hello@ucdconnect.ie"};
         String[] username = {"renjie", "jiaru", "xuewen", "deyan","abc","jone","phone","guess","dream","happy","people","hello"};
         String[] phonenumber = {"0892401111","0892400000","0892401235","0892405464","0892408764","0892406548","0892405548","0892407777","0892406666","0892408888","0892409999","0892406542"};

@@ -23,19 +23,19 @@ import java.util.ArrayList;
 import java.util.IllegalFormatCodePointException;
 
 public class CardCollectionAdapter extends RecyclerView.Adapter<MyHolder> {
-//    This Class Used as Adapter for recyclerView that located in CardCollectionAcitity class
+    //    This Class Used as Adapter for recyclerView that located in CardCollectionAcitity class
     //what it does
-        //1.receives all cards information and put into put those information on to cards
-        //2. It also passes intent information of cards to activity_show_card_Details ,
+    //1.receives all cards information and put into put those information on to cards
+    //2. It also passes intent information of cards to activity_show_card_Details ,
     // as user clicks the card and wants to view detail description of that cards.
     Context c;
     ArrayList<Model> models;
-    LocalDatabase helper ;
-    SQLiteDatabase db ;
+    LocalDatabase helper;
+    SQLiteDatabase db;
     CurrentUserInfo userInfo;
 //     this array list create a list of array which parameter define in our model class
 
-    public CardCollectionAdapter(Context c, ArrayList<Model> models,CurrentUserInfo userInfo) {
+    public CardCollectionAdapter(Context c, ArrayList<Model> models, CurrentUserInfo userInfo) {
         this.c = c;
         this.models = models;
         helper = new LocalDatabase(c, "Cards", null, 1);
@@ -52,12 +52,12 @@ public class CardCollectionAdapter extends RecyclerView.Adapter<MyHolder> {
 
     @SuppressLint("RestrictedApi")
     @Override
-    public void onBindViewHolder(@NonNull final MyHolder myHolder,int position) {
+    public void onBindViewHolder(@NonNull final MyHolder myHolder, int position) {
         final int position2 = position;
-        if (models.get(position).getCardStatus()==2){
+        if (models.get(position).getCardStatus() == 2) {
             myHolder.mCardCompeleted.setClickable(false);
             myHolder.DontWantCardCollected.setVisibility(View.INVISIBLE);
-        }else if (models.get(position).getCardStatus()==1){
+        } else if (models.get(position).getCardStatus() == 1) {
             myHolder.mCardCompeleted.setChecked(false);
         }
         myHolder.mTitle.setText(models.get(position).getTitle());
@@ -71,7 +71,7 @@ public class CardCollectionAdapter extends RecyclerView.Adapter<MyHolder> {
         myHolder.mCardCompeleted.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, final boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     AlertDialog.Builder bb = new AlertDialog.Builder(c);
                     bb.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                         @SuppressLint("RestrictedApi")
@@ -79,17 +79,16 @@ public class CardCollectionAdapter extends RecyclerView.Adapter<MyHolder> {
                         public void onClick(DialogInterface dialog, int which) {
                             int cardID = models.get(position2).getCardID();
                             ContentValues contentValue = new ContentValues();
-                            if(isChecked) {
+                            if (isChecked) {
                                 contentValue.put("cardStatus", "2");
                                 int cardUpdate = db.update("cards", contentValue, "id = ?", new String[]{"" + cardID});
-                                if (cardUpdate == 1){
+                                if (cardUpdate == 1) {
                                     Toast.makeText(c, "Order is finished", Toast.LENGTH_LONG).show();
                                     myHolder.DontWantCardCollected.setVisibility(View.INVISIBLE);
                                     //update ui
                                     models.get(position2).setCardStatus(2);
                                     notifyDataSetChanged();
-                                }
-                                else
+                                } else
                                     Toast.makeText(c, "Update error, please try it later!", Toast.LENGTH_LONG).show();
                             }
                         }
@@ -148,7 +147,6 @@ public class CardCollectionAdapter extends RecyclerView.Adapter<MyHolder> {
         });
 
 
-
 //        This is a way to get image from Resource drawable ,
 //        but just leave it ;if we want to return image fro data base the this like should be change
         myHolder.mImaeView.setImageResource(models.get(position).getImg());
@@ -182,7 +180,6 @@ public class CardCollectionAdapter extends RecyclerView.Adapter<MyHolder> {
                 intent.putExtra("iPhoneNumber", gPhoneNumber);
                 intent.putExtra("iUserNameOnCard", gUserNameOnCard);
                 intent.putExtra("iDate", gDate);
-
 
 
                 c.startActivity(intent);
