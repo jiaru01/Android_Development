@@ -1,7 +1,9 @@
 package com.example.buypool;
 
+import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -60,26 +62,43 @@ public class PublicCardAdapter extends RecyclerView.Adapter<MyHolder> {
         myHolder.addCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int cardID = models.get(position).getCardID();
-                ContentValues contentValue = new ContentValues();
-                contentValue.put("cardStatus", "1");
-                int cardUpdate = db.update("cards", contentValue, "id = ?", new String[]{"" + cardID});
-                if (cardUpdate != 1) {
-                    Toast.makeText(c, "Order is accepted unsuccessfully, please try it later!"+cardID, Toast.LENGTH_LONG).show();
-                    return;
-                }
-                ContentValues contentValue1 = new ContentValues();
-                contentValue1.put("cardID", cardID);
-                contentValue1.put("order_userID", ""+userInfo.getID());
-                long orderInsert = db.insert("orders", null, contentValue1);
-                if (orderInsert > 0) {
-                    Toast.makeText(c, "Order is accepted successfully", Toast.LENGTH_LONG).show();
-                    //update ui
-                    models.remove(position);
-                    notifyDataSetChanged();
-                } else {
-                    Toast.makeText(c, "Order is accepted unsuccessfully, please try it later!!!!", Toast.LENGTH_LONG).show();
-                }
+
+                AlertDialog.Builder bb = new AlertDialog.Builder(c);
+                bb.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        int cardID = models.get(position).getCardID();
+                        ContentValues contentValue = new ContentValues();
+                        contentValue.put("cardStatus", "1");
+                        int cardUpdate = db.update("cards", contentValue, "id = ?", new String[]{"" + cardID});
+                        if (cardUpdate != 1) {
+                            Toast.makeText(c, "Order is accepted unsuccessfully, please try it later!"+cardID, Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        ContentValues contentValue1 = new ContentValues();
+                        contentValue1.put("cardID", cardID);
+                        contentValue1.put("order_userID", ""+userInfo.getID());
+                        long orderInsert = db.insert("orders", null, contentValue1);
+                        if (orderInsert > 0) {
+                            Toast.makeText(c, "Order is accepted successfully", Toast.LENGTH_LONG).show();
+                            //update ui
+                            models.remove(position);
+                            notifyDataSetChanged();
+                        } else {
+                            Toast.makeText(c, "Order is accepted unsuccessfully, please try it later!!!!", Toast.LENGTH_LONG).show();
+                        }
+
+                    }
+                });
+                bb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                bb.setMessage("Are you sure you want to collect this order?");
+                bb.setTitle("Order Collection Confirmation");
+                bb.show();
             }
         });
 

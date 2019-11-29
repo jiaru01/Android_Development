@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.Toast;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -18,7 +19,8 @@ public class SignUpActivity extends AppCompatActivity {
         //Signup and store the information into database
 
     private Button btnLogin , btnSignup, getBtnSignup;
-    private EditText userName,email,password,phoneNumber;
+    private EditText userName,email,password,phoneNumber,rePassword;
+    private Switch gender;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,8 @@ public class SignUpActivity extends AppCompatActivity {
         password = findViewById(R.id.Password);
         email = findViewById(R.id.EnterEmail);
         phoneNumber = findViewById(R.id.PhoneNumber);
+        rePassword = findViewById(R.id.ConfirmPassword);
+        gender = findViewById(R.id.MaleFemale);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,18 +62,30 @@ public class SignUpActivity extends AppCompatActivity {
         SQLiteDatabase db = helper.getWritableDatabase();
 
         String email = this.email.getText().toString();
+        String password = this.password.getText().toString().trim();
+        String rePassword = this.rePassword.getText().toString().trim();
+        String userName = this.userName.getText().toString();
+        String phoneNumber = this.phoneNumber.getText().toString();
+        String gender = this.gender.isChecked()?"1":"0";
+        if (email.equals("") || password.equals("") || rePassword.equals("") || userName.equals("") || phoneNumber.equals("")){
+            Toast.makeText(getApplicationContext(), "All information can not be empty!", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (!password.equals(rePassword)){
+            Toast.makeText(getApplicationContext(), "Passwords are different!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         Cursor hasEmail= db.query("usersremote", null, "email =? ", new String[]{email}, null, null, null);
         if (hasEmail.moveToLast()){
             Toast.makeText(getApplicationContext(), "The email has been registered", Toast.LENGTH_LONG).show();
         }else{
-            String userName = this.userName.getText().toString();
-            String password = this.password.getText().toString();
-            String phoneNumber = this.phoneNumber.getText().toString();
             ContentValues contentValues = new ContentValues();
             contentValues.put("username", userName);
             contentValues.put("email", email);
             contentValues.put("password", password);
             contentValues.put("phone_number", phoneNumber);
+            contentValues.put("gender", gender);
             db.insert("usersremote", null, contentValues);
             Toast.makeText(getApplicationContext(), "Ok,please login", Toast.LENGTH_LONG).show();
         }

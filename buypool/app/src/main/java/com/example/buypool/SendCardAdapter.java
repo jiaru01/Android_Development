@@ -1,7 +1,10 @@
 package com.example.buypool;
 
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -47,15 +50,10 @@ public class SendCardAdapter extends RecyclerView.Adapter<MyHolder> {
         return new MyHolder(view);//this will return our view to holder class
     }
 
+    @SuppressLint("RestrictedApi")
     @Override
     public void onBindViewHolder(@NonNull final MyHolder myHolder, final int position) {
-        int cardStatus = models.get(position).getCardStatus();
-        if (cardStatus == 0)
-             myHolder.mCardStatus.setText("Pending");
-        else if (cardStatus == 1)
-            myHolder.mCardStatus.setText("In processing");
-        else
-            myHolder.mCardStatus.setText("Completed");
+
         myHolder.mTitle.setText(models.get(position).getTitle());
         myHolder.mDes.setText(models.get(position).getDesription());
         myHolder.mDate.setText(models.get(position).getDate());
@@ -65,19 +63,45 @@ public class SendCardAdapter extends RecyclerView.Adapter<MyHolder> {
         myHolder.DontWantCardSent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int cardID = models.get(position).getCardID();
-                int cardDelete = db.delete("cards", "id = ?", new String[]{"" + cardID});
-                if (cardDelete >0){
-                    Toast.makeText(c, "Order is dropped successfully", Toast.LENGTH_LONG).show();
-                    //update ui
-                    models.remove(position);
-                    notifyDataSetChanged();
-                }
-                else
-                    Toast.makeText(c, "Order is dropped unsuccessfully, please try it later!", Toast.LENGTH_LONG).show();
+
+                AlertDialog.Builder bb = new AlertDialog.Builder(c);
+                bb.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        int cardID = models.get(position).getCardID();
+                        int cardDelete = db.delete("cards", "id = ?", new String[]{"" + cardID});
+                        if (cardDelete >0){
+                            Toast.makeText(c, "Order is dropped successfully", Toast.LENGTH_LONG).show();
+                            //update ui
+                            models.remove(position);
+                            notifyDataSetChanged();
+                        }
+                        else
+                            Toast.makeText(c, "Order is dropped unsuccessfully, please try it later!", Toast.LENGTH_LONG).show();
+                    }
+                });
+                bb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                bb.setMessage("Are you sure  you want to drop this order?");
+                bb.setTitle("Order Drop Confirmation");
+                bb.show();
+
             }
         });
-
+        int cardStatus = models.get(position).getCardStatus();
+        if (cardStatus == 0)
+            myHolder.mCardStatus.setText("Pending");
+        else if(cardStatus == 1){
+            myHolder.mCardStatus.setText("In processing");
+        }
+        else{
+            myHolder.mCardStatus.setText("Completed");
+            myHolder.DontWantCardSent.setVisibility(View.INVISIBLE);
+        }
 
 
 //        This is a way to get image from Resource drawable ,

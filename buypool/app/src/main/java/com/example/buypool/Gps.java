@@ -23,22 +23,22 @@ public class Gps implements LocationListener {
         this.context = context;
     }
 
-    public Location getLocation(){
-        if (ContextCompat.checkSelfPermission( context, android.Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED) {
-            Log.e("fist","error");
+    public Location getLocation() {
+        if (ContextCompat.checkSelfPermission(context, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            Log.e("fist", "error");
             return null;
         }
         try {
             LocationManager lm = (LocationManager) context.getSystemService(LOCATION_SERVICE);
             boolean isGPSEnabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
-            if (isGPSEnabled){
-                lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 6000,10,this);
+            if (isGPSEnabled) {
+                lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 6000, 10, this);
                 Location loc = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                 return loc;
-            }else{
-                Log.e("sec","errpr");
+            } else {
+                Log.e("sec", "errpr");
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
