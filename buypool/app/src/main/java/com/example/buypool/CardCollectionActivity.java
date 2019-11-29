@@ -59,7 +59,9 @@ public class CardCollectionActivity extends AppCompatActivity {
         userInfo = (CurrentUserInfo) getApplicationContext();
         String sql = "SELECT title,description,address,date,cards.phone_number,username,gender,cardStatus,cards.id FROM cards,orders,usersremote where cards.id = orders.cardID AND orders.order_userID = ? AND cards.create_userID = usersremote.id;";
         Cursor cardlist = db.rawQuery(sql, new String[]{""+userInfo.getID()});
-        while (cardlist.moveToNext()){
+        cardlist.moveToLast();
+        cardlist.moveToNext();
+        while (cardlist.moveToPrevious()){
             String title = cardlist.getString(0);
             String description = cardlist.getString(1);
             String address = cardlist.getString(2);

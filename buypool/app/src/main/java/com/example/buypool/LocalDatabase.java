@@ -30,13 +30,13 @@ public class LocalDatabase extends SQLiteOpenHelper {
         String[] description = {"I want to get 2 chocolates", "I want to get 2 boxes of chicken", "I need the newest irish newspapers", "need 5 chocolate bars and 2 bottles of milk", "apples for 1000g", "I need 20 free range eggs and 1 boxes of cheese", "I need 20 free range eggs and 1 boxes of cheese","I need 20 free range eggs and 1 boxes of cheese", "get some pineapple for 500g", "apple needed 500g", "apple needed","apple needed"};
 //        String[] address = {"15 apartment C, O'connel street, Dublin 1" ,"15 apartment C, O'connel street, Dublin 1","15 apartment C, O'connel street, Dublin 1","15 apartment C, O'connel street, Dublin 1","15 apartment C, O'connel street, Dublin 1","15 apartment C, O'connel street, Dublin 1","15 apartment C, O'connel street, Dublin 1","15 apartment C, O'connel street, Dublin 1","15 apartment C, O'connel street, Dublin 1","15 apartment C, O'connel street, Dublin 1","15 apartment C, O'connel street, Dublin 1"   };
 
-        int[] is_remember = {0,0,0,1};
+        int[] is_remember = {1};
         int[] cardStatus = {0,0,0,0,0,1,1,2,2,1,0,0};
         int[] create_userID = {2,2,2,2,3,4,5,1,1,1,2,5};
         int[] cardid = {6,7,8,9,10};
         int[] orderUserID = {2,2,2,2,2};
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 1; i++) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("email", email[i]);
             contentValues.put("password", password[i]);

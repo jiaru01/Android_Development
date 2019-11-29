@@ -60,20 +60,14 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase db = helper.getWritableDatabase();
         Cursor users = db.query("userslocal", null, null, null, null, null, null);
             if (users.moveToLast()){
-                while (true){
                     int checked = users.getInt(3);
                     if (checked == 1) {
                         this.remember.setChecked(true);
-                        String email = users.getString(1);
-                        String password = users.getString(2);
-                        this.email.setText(email);
-                        this.password.setText(password);
-                        break;
-                    }{
-                        if (!users.moveToPrevious())
-                            break;
                     }
-                }
+                String email = users.getString(1);
+                String password = users.getString(2);
+                this.email.setText(email);
+                this.password.setText(password);
             }
 
     }
@@ -82,31 +76,25 @@ public class MainActivity extends AppCompatActivity {
         LocalDatabase helper = new LocalDatabase(getApplicationContext(), "Cards", null, 1);
         SQLiteDatabase db = helper.getWritableDatabase();
         String email = this.email.getText().toString();
-        String password = this.password.getText().toString();
+        String password = this.password.getText().toString().trim();
+
         Cursor usersremote = db.query("usersremote", null, "email=? and password=?", new String[]{email, password}, null, null, null);
         if (usersremote.moveToNext()){
             userInfo = (CurrentUserInfo) getApplicationContext();
             userInfo.setID(usersremote.getInt(0));
             userInfo.setUserName(usersremote.getString(1));
             userInfo.setPhoneNumber(usersremote.getString(4));
+            ContentValues contenValuses = new ContentValues();
+            contenValuses.put("email", email);
             if (this.remember.isChecked()){
-                Cursor user = db.query("userslocal", null, "email=?", new String[]{email}, null, null, null);
-                if (user.moveToLast()){
-                    Cursor isSame = db.query("userslocal", null, "email = ? and password=?", new String[]{email,password}, null, null, null);
-                    if(!isSame.moveToLast()){
-                        ContentValues content = new ContentValues();
-                        content.put("password", password);
-                        db.update("userslocal", content, "email = ？",new String[]{email});
-                    }
-                }else {
-                    ContentValues contenValuses = new ContentValues();
-                    contenValuses.put("email", email);
-                    contenValuses.put("password", password);
-                    contenValuses.put("is_remember", 1);
-                    db.insert("userslocal", null, contenValuses);
-                }
+                contenValuses.put("is_remember", 1);
+                contenValuses.put("password", password);
 
+            }else {
+                contenValuses.put("is_remember", 0);
+                contenValuses.put("password", "");
             }
+            int user = db.update("userslocal", contenValuses, "id = 1", null);
         }else {
             Toast.makeText(getApplicationContext(), "Username or Password Wrong!", Toast.LENGTH_LONG).show();
             return;

@@ -1,6 +1,8 @@
 package com.example.buypool;
 
+import android.app.AlertDialog;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -75,8 +77,22 @@ public class ProfileActivity extends AppCompatActivity {
         formSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addCard(numbers);
-
+                AlertDialog.Builder bb = new AlertDialog.Builder(ProfileActivity.this);
+                bb.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        addCard(numbers);
+                    }
+                });
+                bb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                bb.setMessage("Are you sure you want to create this order?");
+                bb.setTitle("Order Creation Confirmation");
+                bb.show();
             }
         });
 
